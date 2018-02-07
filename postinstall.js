@@ -21,7 +21,7 @@ ${icon.icon.paths
     }
 </vector>`;
 
-        fs.writeFileSync(ANDROID_DRAWABLES_PATH + icon.properties.name, drawable);
+        fs.writeFileSync(`${ANDROID_DRAWABLES_PATH}${icon.properties.name}.xml`, drawable);
     });
 }
 
