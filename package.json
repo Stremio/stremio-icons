@@ -1,0 +1,15 @@
+{
+    "name": "stremio-icons",
+    "publisher": "Smart Code Ltd.",
+    "website": "http://www.strem.io",
+    "version": "0.0.1",
+    "private": true,
+    "main": "icons.js",
+    "scripts": {
+        "postinstall": "node postinstall.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+ssh://git@bitbucket.org/stremio/stremio-icons.git"
+    }
+}

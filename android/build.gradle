@@ -1,0 +1,21 @@
+apply plugin: 'com.android.library'
+
+def _compileSdkVersion = project.hasProperty("compileSdkVersion") ? project.compileSdkVersion.toInteger() : 24;
+def _buildToolsVersion = project.hasProperty("buildToolsVersion") ? project.buildToolsVersion : "26.0.2";
+def _minSdkVersion = project.hasProperty("minSdkVersion") ? project.minSdkVersion.toInteger() : 16;
+def _targetSdkVersion = project.hasProperty("targetSdkVersion") ? project.targetSdkVersion.toInteger() : 22;
+
+android {
+    compileSdkVersion _compileSdkVersion
+    buildToolsVersion _buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion _minSdkVersion
+        targetSdkVersion _targetSdkVersion
+        versionCode 1
+        versionName "1.0.0"
+        ndk {
+            abiFilters "armeabi-v7a", "x86"
+        }
+    }
+}
