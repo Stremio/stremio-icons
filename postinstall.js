@@ -1,7 +1,7 @@
 const fs = require('fs');
 const icons = require('./icons.json');
 
-const ANDROID_DRAWABLES_PATH = './android/src/main/res/drawables/';
+const ANDROID_DRAWABLE_PATH = './android/src/main/res/drawable/';
 
 function updateAndroidDrawables() {
     const height = icons.height;
@@ -21,7 +21,7 @@ ${icon.icon.paths
     }
 </vector>`;
 
-        fs.writeFileSync(`${ANDROID_DRAWABLES_PATH}${icon.properties.name}.xml`, drawable);
+        fs.writeFileSync(`${ANDROID_DRAWABLE_PATH}${icon.properties.name}.xml`, drawable);
     });
 }
 
