@@ -22,7 +22,7 @@ Icon.propTypes = {
     color: PropTypes.string.isRequired
 };
 Icon.defaultProps = {
-    color: 'rgba(255,255,255,0.8)'
+    color: '#ccffffff'
 };
 
 const RCTIconInterface = {
