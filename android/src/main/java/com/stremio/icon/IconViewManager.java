@@ -3,6 +3,7 @@ package com.stremio.icon;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Color;
+import android.util.Log;
 
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
@@ -31,7 +32,7 @@ final class IconViewManager extends SimpleViewManager<IconView> {
             final int iconResourceId = getResourceIdByName(context, icon, "drawable");
             iconView.setImageResource(iconResourceId);
         } catch (final Exception e) {
-            e.printStackTrace();
+            Log.e(REACT_CLASS, icon, e);
         }
     }
 
@@ -40,7 +41,7 @@ final class IconViewManager extends SimpleViewManager<IconView> {
         try {
             iconView.setColorFilter(Color.parseColor(color));
         } catch (final Exception e) {
-            e.printStackTrace();
+            Log.e(REACT_CLASS, color, e);
         }
     }
 
