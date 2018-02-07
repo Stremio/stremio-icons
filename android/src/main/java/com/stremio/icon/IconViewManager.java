@@ -1,11 +1,12 @@
 package com.stremio.icon;
 
+import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Color;
 
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.annotations.ReactProp;
-import com.stremio.utils.StremioUtils;
 
 final class IconViewManager extends SimpleViewManager<IconView> {
 
@@ -26,7 +27,8 @@ final class IconViewManager extends SimpleViewManager<IconView> {
     @ReactProp(name = ICON_PROP)
     public void setIcon(final IconView iconView, final String icon) {
         try {
-            final int iconResourceId = StremioUtils.getResourceIdByName(icon, "drawable");
+            final Context context = iconView.getContext();
+            final int iconResourceId = getResourceIdByName(context, icon, "drawable");
             iconView.setImageResource(iconResourceId);
         } catch (final Exception e) {
             e.printStackTrace();
@@ -41,5 +43,14 @@ final class IconViewManager extends SimpleViewManager<IconView> {
             e.printStackTrace();
         }
     }
+
+    private static int getResourceIdByName(final Context context, final String resourceName, final String resourceType) {
+        final Context application = context.getApplicationContext();
+        final Resources resources = application.getResources();
+        final String packageName = application.getPackageName();
+        final int resourceId = resources.getIdentifier(resourceName, resourceType, packageName);
+        return resourceId;
+    }
+
 
 }
