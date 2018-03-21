@@ -2,7 +2,7 @@
     "name": "stremio-icons",
     "publisher": "Smart Code Ltd.",
     "website": "http://www.strem.io",
-    "version": "0.0.7",
+    "version": "0.0.8",
     "private": true,
     "main": "icons.js",
     "scripts": {
