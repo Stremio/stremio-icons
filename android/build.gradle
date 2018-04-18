@@ -1,27 +1,18 @@
 apply plugin: 'com.android.library'
 
-def _compileSdkVersion = project.hasProperty("compileSdkVersion") ? project.compileSdkVersion.toInteger() : 24;
-def _buildToolsVersion = project.hasProperty("buildToolsVersion") ? project.buildToolsVersion : "26.0.2";
-def _minSdkVersion = project.hasProperty("minSdkVersion") ? project.minSdkVersion.toInteger() : 16;
-def _targetSdkVersion = project.hasProperty("targetSdkVersion") ? project.targetSdkVersion.toInteger() : 22;
-def _supportLibraryVersion = project.hasProperty("supportLibraryVersion") ? project.supportLibraryVersion : "24.2.1";
-
 android {
-    compileSdkVersion _compileSdkVersion
-    buildToolsVersion _buildToolsVersion
+    compileSdkVersion 23
+    buildToolsVersion "23.0.1"
 
     defaultConfig {
-        minSdkVersion _minSdkVersion
-        targetSdkVersion _targetSdkVersion
+        minSdkVersion 16
+        targetSdkVersion 22
         versionCode 1
         versionName "1.0.0"
-        ndk {
-            abiFilters "armeabi-v7a", "x86"
-        }
     }
 }
 
 dependencies {
     compile "com.facebook.react:react-native:+" // from node_modules
-    compile "com.android.support:appcompat-v7:${_supportLibraryVersion}"
+    compile "com.android.support:appcompat-v7:23.0.1"
 }
