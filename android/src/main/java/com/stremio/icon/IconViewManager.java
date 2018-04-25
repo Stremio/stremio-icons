@@ -1,8 +1,5 @@
 package com.stremio.icon;
 
-import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.Color;
 import android.util.Log;
 
 import com.facebook.react.common.MapBuilder;
@@ -37,25 +34,23 @@ final class IconViewManager extends SimpleViewManager<IconView> {
             final String typeName = type.name();
             constants.put(typeName, typeName);
         }
-        
+
         return constants;
     }
 
     @ReactProp(name = ICON_PROP)
-    public void setIcon(final IconView iconView, final String icon) {
+    public void setIcon(final IconView iconView, final String iconName) {
         try {
-            final Context context = iconView.getContext();
-            final int iconResourceId = getResourceIdByName(context, icon, "drawable");
-            iconView.setImageResource(iconResourceId);
+            iconView.setIcon(iconName);
         } catch (final Exception e) {
-            Log.e(REACT_CLASS, icon, e);
+            Log.e(REACT_CLASS, iconName, e);
         }
     }
 
     @ReactProp(name = COLOR_PROP)
     public void setColor(final IconView iconView, final String color) {
         try {
-            iconView.setColorFilter(Color.parseColor(color));
+            iconView.setColor(color);
         } catch (final Exception e) {
             Log.e(REACT_CLASS, color, e);
         }
@@ -68,14 +63,6 @@ final class IconViewManager extends SimpleViewManager<IconView> {
         } catch (final Exception e) {
             Log.e(REACT_CLASS, scaleType, e);
         }
-    }
-
-    private static int getResourceIdByName(final Context context, final String resourceName, final String resourceType) {
-        final Context application = context.getApplicationContext();
-        final Resources resources = application.getResources();
-        final String packageName = application.getPackageName();
-        final int resourceId = resources.getIdentifier(resourceName, resourceType, packageName);
-        return resourceId;
     }
 
 }
