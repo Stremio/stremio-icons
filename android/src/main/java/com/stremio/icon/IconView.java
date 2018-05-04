@@ -41,13 +41,11 @@ public class IconView extends AppCompatImageView {
         try {
             setImageResource(mIconResourceId);
         } catch (final Exception e) {
-            e.printStackTrace();
         }
 
         try {
             getDrawable().mutate().setColorFilter(mColor, PorterDuff.Mode.MULTIPLY);
         } catch (final Exception e) {
-            e.printStackTrace();
         }
     }
 
