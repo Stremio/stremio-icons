@@ -32,7 +32,7 @@ function updateWebIcons() {
         };
         return webIcons;
     }, {});
-    fs.writeFileSync(`./web/icons.json`, JSON.stringify(webIcons));
+    fs.writeFileSync(`./dom/icons.json`, JSON.stringify(webIcons));
 }
 
 updateAndroidDrawables();
