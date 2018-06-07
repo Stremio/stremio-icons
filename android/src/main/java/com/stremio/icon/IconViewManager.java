@@ -1,7 +1,5 @@
 package com.stremio.icon;
 
-import android.util.Log;
-
 import com.facebook.react.common.MapBuilder;
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
@@ -43,7 +41,6 @@ final class IconViewManager extends SimpleViewManager<IconView> {
         try {
             iconView.setIcon(iconName);
         } catch (final Exception e) {
-            Log.e(REACT_CLASS, iconName, e);
         }
     }
 
@@ -52,7 +49,6 @@ final class IconViewManager extends SimpleViewManager<IconView> {
         try {
             iconView.setColor(color);
         } catch (final Exception e) {
-            Log.e(REACT_CLASS, color, e);
         }
     }
 
@@ -61,7 +57,6 @@ final class IconViewManager extends SimpleViewManager<IconView> {
         try {
             iconView.setScaleType(IconView.ScaleType.valueOf(scaleType));
         } catch (final Exception e) {
-            Log.e(REACT_CLASS, scaleType, e);
         }
     }
 
