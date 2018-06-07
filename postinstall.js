@@ -4,6 +4,7 @@ const icons = require('./icons.json');
 const ANDROID_DRAWABLE_PATH = './android/src/main/res/drawable/';
 
 function updateAndroidDrawables() {
+    fs.unlinkSync('./android/src/main/res/drawable/.gitkeep');
     const height = icons.height;
     return icons.icons.forEach((icon) => {
         const width = icon.icon.width || height;
