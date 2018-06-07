@@ -1,12 +1,10 @@
 const fs = require('fs');
 const icons = require('./icons.json');
 
-const ANDROID_DRAWABLE_PATH = './android/src/main/res/drawable/';
-
 function updateAndroidDrawables() {
     fs.unlinkSync('./android/src/main/res/drawable/.gitkeep');
     const height = icons.height;
-    return icons.icons.forEach((icon) => {
+    icons.icons.forEach((icon) => {
         const width = icon.icon.width || height;
         const drawable = `<?xml version="1.0" encoding="utf-8"?>
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
@@ -22,8 +20,20 @@ ${icon.icon.paths
     }
 </vector>`;
 
-        fs.writeFileSync(`${ANDROID_DRAWABLE_PATH}${icon.properties.name}.xml`, drawable);
+        fs.writeFileSync(`./android/src/main/res/drawable/${icon.properties.name}.xml`, drawable);
     });
 }
 
+function updateWebIcons() {
+    const webIcons = icons.icons.reduce((webIcons, icon) => {
+        webIcons[icon.properties.name] = {
+            viewBox: `0 0 ${icon.icon.width || icons.height} ${icons.height}`,
+            paths: icon.icon.paths
+        };
+        return webIcons;
+    }, {});
+    fs.writeFileSync(`./web/icons.json`, JSON.stringify(webIcons));
+}
+
 updateAndroidDrawables();
+updateWebIcons();
