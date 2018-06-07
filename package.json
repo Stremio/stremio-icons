@@ -9,6 +9,6 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+ssh://git@bitbucket.org/stremio/stremio-icons.git"
+        "url": "git+ssh://git@github.com/Stremio/stremio-icons.git"
     }
 }
