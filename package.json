@@ -4,7 +4,6 @@
     "website": "http://www.strem.io",
     "version": "0.0.13",
     "private": true,
-    "main": "icons.js",
     "scripts": {
         "postinstall": "node postinstall.js"
     },
