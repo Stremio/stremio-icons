@@ -1,7 +1,7 @@
 {
     "name": "stremio-icons",
     "publisher": "Smart Code Ltd.",
-    "website": "http://www.strem.io",
+    "website": "http://www.stremio.com",
     "version": "1.0.0",
     "scripts": {
         "postinstall": "node postinstall.js"
