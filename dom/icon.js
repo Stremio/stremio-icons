@@ -29,3 +29,6 @@ Icon.propTypes = {
 };
 
 export default Icon;
+export {
+    icons
+};
