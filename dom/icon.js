@@ -13,6 +13,7 @@ const Icon = React.forwardRef((props, ref) => (
     />
 ));
 
+Icon.displayName = 'Icon';
 Icon.propTypes = {
     icon: PropTypes.oneOf(Object.keys(icons)).isRequired
 };
