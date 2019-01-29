@@ -4,9 +4,9 @@ import icons from './icons';
 
 const Icon = React.forwardRef((props, ref) => (
     <svg
+        viewBox={icons[props.icon].viewBox}
         {...props}
         ref={ref}
-        viewBox={icons[props.icon].viewBox}
         children={icons[props.icon].paths.map((path, index) => (
             <path key={index} d={path} />
         ))}
