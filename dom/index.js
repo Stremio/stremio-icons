@@ -1,9 +1,3 @@
-import Icon from './icon';
-import dataUrl from './dataUrl';
-import icons from './icons';
+const Icon = require('./Icon');
 
-export default Icon;
-export {
-    dataUrl,
-    icons
-};
+module.exports = Icon;
