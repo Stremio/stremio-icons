@@ -2,7 +2,7 @@
     "name": "stremio-icons",
     "publisher": "Smart Code Ltd.",
     "website": "http://www.stremio.com",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "scripts": {
         "generateReadme": "node ./scripts/generateReadme.js",
         "generateIcons": "node ./scripts/generateIcons.js"
