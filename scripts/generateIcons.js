@@ -1,5 +1,5 @@
 const fs = require('fs');
-const icons = require('./icons.json');
+const icons = require('../icons.json');
 
 function updateAndroidDrawables() {
     fs.unlinkSync('./android/src/main/res/drawable/.gitkeep');
@@ -12,12 +12,11 @@ function updateAndroidDrawables() {
 \tandroid:height="${height / 20}dp"
 \tandroid:viewportWidth="${width}"
 \tandroid:viewportHeight="${height}">
-${icon.icon.paths
-        .map((path) => `\t<path
+${icon.icon.paths.map((path) => `\t<path
 \t\tandroid:fillColor="#ffffffff"
 \t\tandroid:pathData="${path}" />`)
-        .join('\n')
-    }
+                .join('\n')
+            }
 </vector>`;
 
         fs.writeFileSync(`./android/src/main/res/drawable/${icon.properties.name}.xml`, drawable);

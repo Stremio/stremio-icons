@@ -5,7 +5,7 @@
     "version": "1.0.6",
     "scripts": {
         "generateReadme": "node ./scripts/generateReadme.js",
-        "postinstall": "node ./scripts/postinstall.js"
+        "generateIcons": "node ./scripts/generateIcons.js"
     },
     "repository": {
         "type": "git",
