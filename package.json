@@ -4,7 +4,8 @@
     "website": "http://www.stremio.com",
     "version": "1.0.6",
     "scripts": {
-        "postinstall": "node postinstall.js"
+        "generateReadme": "node ./scripts/generateReadme.js",
+        "postinstall": "node ./scripts/postinstall.js"
     },
     "repository": {
         "type": "git",
