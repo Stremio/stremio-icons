@@ -1,5 +1,6 @@
 |preview|name|
 |:---:|:---:|
+|![ic_actor](/preview/ic_actor.png)|ic_actor|
 |![ic_addlib](/preview/ic_addlib.png)|ic_addlib|
 |![ic_addons](/preview/ic_addons.png)|ic_addons|
 |![ic_amazon](/preview/ic_amazon.png)|ic_amazon|
@@ -16,6 +17,8 @@
 |![ic_calendar](/preview/ic_calendar.png)|ic_calendar|
 |![ic_cast](/preview/ic_cast.png)|ic_cast|
 |![ic_cast_connected](/preview/ic_cast_connected.png)|ic_cast_connected|
+|![ic_cast_load1](/preview/ic_cast_load1.png)|ic_cast_load1|
+|![ic_cast_load2](/preview/ic_cast_load2.png)|ic_cast_load2|
 |![ic_cbs](/preview/ic_cbs.png)|ic_cbs|
 |![ic_channels](/preview/ic_channels.png)|ic_channels|
 |![ic_check](/preview/ic_check.png)|ic_check|
@@ -24,11 +27,13 @@
 |![ic_cinemanow](/preview/ic_cinemanow.png)|ic_cinemanow|
 |![ic_cloud](/preview/ic_cloud.png)|ic_cloud|
 |![ic_continue](/preview/ic_continue.png)|ic_continue|
+|![ic_data_export](/preview/ic_data_export.png)|ic_data_export|
 |![ic_discover](/preview/ic_discover.png)|ic_discover|
 |![ic_downloads](/preview/ic_downloads.png)|ic_downloads|
 |![ic_drawer](/preview/ic_drawer.png)|ic_drawer|
 |![ic_ellipsis](/preview/ic_ellipsis.png)|ic_ellipsis|
 |![ic_epix](/preview/ic_epix.png)|ic_epix|
+|![ic_exit_fullscreen](/preview/ic_exit_fullscreen.png)|ic_exit_fullscreen|
 |![ic_eye](/preview/ic_eye.png)|ic_eye|
 |![ic_facebook](/preview/ic_facebook.png)|ic_facebook|
 |![ic_fandangonow](/preview/ic_fandangonow.png)|ic_fandangonow|
@@ -67,6 +72,7 @@
 |![ic_pause](/preview/ic_pause.png)|ic_pause|
 |![ic_person](/preview/ic_person.png)|ic_person|
 |![ic_play](/preview/ic_play.png)|ic_play|
+|![ic_player_fullscreen](/preview/ic_player_fullscreen.png)|ic_player_fullscreen|
 |![ic_plus](/preview/ic_plus.png)|ic_plus|
 |![ic_remote](/preview/ic_remote.png)|ic_remote|
 |![ic_removelib](/preview/ic_removelib.png)|ic_removelib|
