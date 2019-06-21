@@ -59,7 +59,7 @@
                 "isMulticolor2": false,
                 "grid": 0,
                 "tags": [
-                    "ic_-player_fullscreen"
+                    "ic_player_fullscreen"
                 ]
             },
             "attrs": [
@@ -71,7 +71,7 @@
             "properties": {
                 "order": 312,
                 "id": 1,
-                "name": "ic_-player_fullscreen",
+                "name": "ic_player_fullscreen",
                 "prevSize": 32,
                 "code": 59738
             },
