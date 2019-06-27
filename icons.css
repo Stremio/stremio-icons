@@ -1,9 +1,9 @@
 @font-face {
   font-family: 'icon-full-height';
   src:
-    url('fonts/icon-full-height.ttf?rgra2q') format('truetype'),
-    url('fonts/icon-full-height.woff?rgra2q') format('woff'),
-    url('fonts/icon-full-height.svg?rgra2q#icon-full-height') format('svg');
+    url('fonts/icon-full-height.ttf?1s8xda') format('truetype'),
+    url('fonts/icon-full-height.woff?1s8xda') format('woff'),
+    url('fonts/icon-full-height.svg?1s8xda#icon-full-height') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -23,16 +23,13 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-ic_profile_placeholder .path1:before {
+.icon-ic_exit_fullscreen:before {
   content: "\e959";
-  color: rgb(255, 255, 255);
 }
-.icon-ic_profile_placeholder .path2:before {
+.icon-ic_player_fullscreen:before {
   content: "\e95a";
-  margin-left: -1em;
-  color: rgb(139, 161, 210);
 }
-.icon-ic_profile_placeholder .path3:before {
+.icon-ic_data_export:before {
   content: "\e95b";
   margin-left: -1em;
   color: rgb(139, 161, 210);
