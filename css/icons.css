@@ -1,0 +1,426 @@
+@font-face {
+  font-family: 'icon-full-height';
+  src:
+    url('fonts/icon-full-height.ttf?e4fsro') format('truetype'),
+    url('fonts/icon-full-height.woff?e4fsro') format('woff'),
+    url('fonts/icon-full-height.svg?e4fsro#icon-full-height') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icon-full-height' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-ic_arrow_thin_left:before {
+  content: "\e965";
+}
+.icon-ic_arrow_thin_right:before {
+  content: "\e964";
+}
+.icon-ic_p2p:before {
+  content: "\e95c";
+}
+.icon-ic_arrow_right:before {
+  content: "\e95d";
+}
+.icon-ic_arrow_up:before {
+  content: "\e95e";
+}
+.icon-ic_bell:before {
+  content: "\e95f";
+}
+.icon-ic_broken_link:before {
+  content: "\e960";
+}
+.icon-ic_folder:before {
+  content: "\e961";
+}
+.icon-ic_laptop:before {
+  content: "\e962";
+}
+.icon-ic_triangle_down:before {
+  content: "\e963";
+}
+.icon-ic_exit_fullscreen:before {
+  content: "\e959";
+}
+.icon-ic_player_fullscreen:before {
+  content: "\e95a";
+}
+.icon-ic_data_export:before {
+  content: "\e95b";
+}
+.icon-ic_tv:before {
+  content: "\e9e3";
+}
+.icon-ic_highspeaker:before {
+  content: "\e9e4";
+}
+.icon-ic_list:before {
+  content: "\e9e5";
+}
+.icon-ic_volume0:before {
+  content: "\e9e6";
+}
+.icon-ic_network:before {
+  content: "\e9e7";
+}
+.icon-ic_person:before {
+  content: "\e9e8";
+}
+.icon-ic_report:before {
+  content: "\e9e9";
+}
+.icon-ic_reset_1:before {
+  content: "\e9ea";
+}
+.icon-ic_stremio_tray:before {
+  content: "\e9eb";
+}
+.icon-ic_trackt:before {
+  content: "\e9ec";
+}
+.icon-ic_twitter:before {
+  content: "\e9ed";
+}
+.icon-ic_volume1:before {
+  content: "\e9ee";
+}
+.icon-ic_volume2:before {
+  content: "\e9ef";
+}
+.icon-ic_volume3:before {
+  content: "\e9f0";
+}
+.icon-ic_arrow_left:before {
+  content: "\e9f1";
+}
+.icon-ic_fullscreen:before {
+  content: "\e9f2";
+}
+.icon-ic_user:before {
+  content: "\e9f3";
+}
+.icon-ic_cloud:before {
+  content: "\e9f4";
+}
+.icon-ic_apple_tv:before {
+  content: "\e9f5";
+}
+.icon-ic_arrow_down:before {
+  content: "\e9f6";
+}
+.icon-ic_chromecast:before {
+  content: "\e9f7";
+}
+.icon-ic_cinema:before {
+  content: "\e9f8";
+}
+.icon-ic_ellipsis:before {
+  content: "\e9f9";
+}
+.icon-ic_glasses:before {
+  content: "\e9fa";
+}
+.icon-ic_gplus:before {
+  content: "\e9fb";
+}
+.icon-ic_grid:before {
+  content: "\e9fc";
+}
+.icon-ic_amazon:before {
+  content: "\e944";
+}
+.icon-ic_cbs:before {
+  content: "\e945";
+}
+.icon-ic_cinemanow:before {
+  content: "\e946";
+}
+.icon-ic_epix:before {
+  content: "\e947";
+}
+.icon-ic_fandangonow:before {
+  content: "\e948";
+}
+.icon-ic_flixster:before {
+  content: "\e949";
+}
+.icon-ic_fox:before {
+  content: "\e94a";
+}
+.icon-ic_google_play:before {
+  content: "\e94b";
+}
+.icon-ic_hbo:before {
+  content: "\e94c";
+}
+.icon-ic_hbo_now:before {
+  content: "\e94d";
+}
+.icon-ic_hulu:before {
+  content: "\e94e";
+}
+.icon-ic_itunes:before {
+  content: "\e94f";
+}
+.icon-ic_netflix:before {
+  content: "\e950";
+}
+.icon-ic_paramount_movies:before {
+  content: "\e951";
+}
+.icon-ic_showtime:before {
+  content: "\e952";
+}
+.icon-ic_sony:before {
+  content: "\e953";
+}
+.icon-ic_verizon:before {
+  content: "\e954";
+}
+.icon-ic_vudu:before {
+  content: "\e955";
+}
+.icon-ic_xbox:before {
+  content: "\e956";
+}
+.icon-ic_xfinity:before {
+  content: "\e957";
+}
+.icon-ic_youtube:before {
+  content: "\e958";
+}
+.icon-ic_imdbnoframe:before {
+  content: "\e93d";
+}
+.icon-ic_time:before {
+  content: "\e93e";
+}
+.icon-ic_addlib:before {
+  content: "\e93f";
+}
+.icon-ic_minus:before {
+  content: "\e940";
+}
+.icon-ic_plus:before {
+  content: "\e941";
+}
+.icon-ic_removelib:before {
+  content: "\e942";
+}
+.icon-ic_upload:before {
+  content: "\e943";
+}
+.icon-ic_back_android:before {
+  content: "\e930";
+}
+.icon-ic_back_ios:before {
+  content: "\e931";
+}
+.icon-ic_box_empty:before {
+  content: "\e932";
+}
+.icon-ic_cast_connected:before {
+  content: "\e933";
+}
+.icon-ic_cast_load1 .path1:before {
+  content: "\e934";
+  color: rgb(0, 0, 0);
+}
+.icon-ic_cast_load1 .path2:before {
+  content: "\e935";
+  margin-left: -1.21875em;
+  color: rgb(0, 0, 0);
+  opacity: 0.3;
+}
+.icon-ic_cast_load1 .path3:before {
+  content: "\e936";
+  margin-left: -1.21875em;
+  color: rgb(0, 0, 0);
+  opacity: 0.3;
+}
+.icon-ic_cast_load1 .path4:before {
+  content: "\e937";
+  margin-left: -1.21875em;
+  color: rgb(0, 0, 0);
+}
+.icon-ic_cast_load2 .path1:before {
+  content: "\e938";
+  color: rgb(0, 0, 0);
+}
+.icon-ic_cast_load2 .path2:before {
+  content: "\e939";
+  margin-left: -1.21875em;
+  color: rgb(0, 0, 0);
+  opacity: 0.3;
+}
+.icon-ic_cast_load2 .path3:before {
+  content: "\e93a";
+  margin-left: -1.21875em;
+  color: rgb(0, 0, 0);
+}
+.icon-ic_cast_load2 .path4:before {
+  content: "\e93b";
+  margin-left: -1.21875em;
+  color: rgb(0, 0, 0);
+}
+.icon-ic_globe:before {
+  content: "\e93c";
+}
+.icon-ic_auto:before {
+  content: "\e91c";
+}
+.icon-ic_forw15:before {
+  content: "\e91d";
+}
+.icon-ic_forw30:before {
+  content: "\e91e";
+}
+.icon-ic_forward:before {
+  content: "\e91f";
+}
+.icon-ic_lock:before {
+  content: "\e920";
+}
+.icon-ic_rew15:before {
+  content: "\e921";
+}
+.icon-ic_rew30:before {
+  content: "\e922";
+}
+.icon-ic_rewind:before {
+  content: "\e923";
+}
+.icon-ic_share:before {
+  content: "\e924";
+}
+.icon-ic_sidebar:before {
+  content: "\e925";
+}
+.icon-ic_sub:before {
+  content: "\e926";
+}
+.icon-ic_vlc:before {
+  content: "\e927";
+}
+.icon-ic_warning:before {
+  content: "\e928";
+}
+.icon-ic_x:before {
+  content: "\e929";
+}
+.icon-ic_youtube_small:before {
+  content: "\e92a";
+}
+.icon-ic_blind:before {
+  content: "\e92b";
+}
+.icon-ic_check:before {
+  content: "\e92c";
+}
+.icon-ic_magnet:before {
+  content: "\e92d";
+}
+.icon-ic_pause:before {
+  content: "\e92e";
+}
+.icon-ic_stremio:before {
+  content: "\e92f";
+}
+.icon-ic_actor:before {
+  content: "\e918";
+}
+.icon-ic_back:before {
+  content: "\e919";
+}
+.icon-ic_imdb:before {
+  content: "\e91a";
+}
+.icon-ic_link:before {
+  content: "\e91b";
+}
+.icon-ic_filter:before {
+  content: "\e917";
+}
+.icon-ic_addons:before {
+  content: "\e900";
+}
+.icon-ic_board:before {
+  content: "\e901";
+}
+.icon-ic_calendar:before {
+  content: "\e902";
+}
+.icon-ic_cast:before {
+  content: "\e903";
+}
+.icon-ic_channels:before {
+  content: "\e904";
+}
+.icon-ic_continue:before {
+  content: "\e905";
+}
+.icon-ic_discover:before {
+  content: "\e906";
+}
+.icon-ic_downloads:before {
+  content: "\e907";
+}
+.icon-ic_drawer:before {
+  content: "\e908";
+}
+.icon-ic_eye:before {
+  content: "\e909";
+}
+.icon-ic_facebook:before {
+  content: "\e90a";
+}
+.icon-ic_help:before {
+  content: "\e90b";
+}
+.icon-ic_library:before {
+  content: "\e90c";
+}
+.icon-ic_more:before {
+  content: "\e90d";
+}
+.icon-ic_movies:before {
+  content: "\e90e";
+}
+.icon-ic_play:before {
+  content: "\e90f";
+}
+.icon-ic_remote:before {
+  content: "\e910";
+}
+.icon-ic_reset:before {
+  content: "\e911";
+}
+.icon-ic_search:before {
+  content: "\e912";
+}
+.icon-ic_series:before {
+  content: "\e913";
+}
+.icon-ic_settings:before {
+  content: "\e914";
+}
+.icon-ic_star:before {
+  content: "\e915";
+}
+.icon-ic_live_tv:before {
+  content: "\e916";
+}
