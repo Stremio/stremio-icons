@@ -7,13 +7,19 @@
 |![ic_apple_tv](/preview/ic_apple_tv.png)|ic_apple_tv|
 |![ic_arrow_down](/preview/ic_arrow_down.png)|ic_arrow_down|
 |![ic_arrow_left](/preview/ic_arrow_left.png)|ic_arrow_left|
+|![ic_arrow_right](/preview/ic_arrow_right.png)|ic_arrow_right|
+|![ic_arrow_thin_left](/preview/ic_arrow_thin_left.png)|ic_arrow_thin_left|
+|![ic_arrow_thin_right](/preview/ic_arrow_thin_right.png)|ic_arrow_thin_right|
+|![ic_arrow_up](/preview/ic_arrow_up.png)|ic_arrow_up|
 |![ic_auto](/preview/ic_auto.png)|ic_auto|
 |![ic_back](/preview/ic_back.png)|ic_back|
 |![ic_back_android](/preview/ic_back_android.png)|ic_back_android|
 |![ic_back_ios](/preview/ic_back_ios.png)|ic_back_ios|
+|![ic_bell](/preview/ic_bell.png)|ic_bell|
 |![ic_blind](/preview/ic_blind.png)|ic_blind|
 |![ic_board](/preview/ic_board.png)|ic_board|
 |![ic_box_empty](/preview/ic_box_empty.png)|ic_box_empty|
+|![ic_broken_link](/preview/ic_broken_link.png)|ic_broken_link|
 |![ic_calendar](/preview/ic_calendar.png)|ic_calendar|
 |![ic_cast](/preview/ic_cast.png)|ic_cast|
 |![ic_cast_connected](/preview/ic_cast_connected.png)|ic_cast_connected|
@@ -39,6 +45,7 @@
 |![ic_fandangonow](/preview/ic_fandangonow.png)|ic_fandangonow|
 |![ic_filter](/preview/ic_filter.png)|ic_filter|
 |![ic_flixster](/preview/ic_flixster.png)|ic_flixster|
+|![ic_folder](/preview/ic_folder.png)|ic_folder|
 |![ic_forw15](/preview/ic_forw15.png)|ic_forw15|
 |![ic_forw30](/preview/ic_forw30.png)|ic_forw30|
 |![ic_forward](/preview/ic_forward.png)|ic_forward|
@@ -57,6 +64,7 @@
 |![ic_imdb](/preview/ic_imdb.png)|ic_imdb|
 |![ic_imdbnoframe](/preview/ic_imdbnoframe.png)|ic_imdbnoframe|
 |![ic_itunes](/preview/ic_itunes.png)|ic_itunes|
+|![ic_laptop](/preview/ic_laptop.png)|ic_laptop|
 |![ic_library](/preview/ic_library.png)|ic_library|
 |![ic_link](/preview/ic_link.png)|ic_link|
 |![ic_list](/preview/ic_list.png)|ic_list|
@@ -68,6 +76,7 @@
 |![ic_movies](/preview/ic_movies.png)|ic_movies|
 |![ic_netflix](/preview/ic_netflix.png)|ic_netflix|
 |![ic_network](/preview/ic_network.png)|ic_network|
+|![ic_p2p](/preview/ic_p2p.png)|ic_p2p|
 |![ic_paramount_movies](/preview/ic_paramount_movies.png)|ic_paramount_movies|
 |![ic_pause](/preview/ic_pause.png)|ic_pause|
 |![ic_person](/preview/ic_person.png)|ic_person|
@@ -95,6 +104,7 @@
 |![ic_sub](/preview/ic_sub.png)|ic_sub|
 |![ic_time](/preview/ic_time.png)|ic_time|
 |![ic_trackt](/preview/ic_trackt.png)|ic_trackt|
+|![ic_triangle_down](/preview/ic_triangle_down.png)|ic_triangle_down|
 |![ic_tv](/preview/ic_tv.png)|ic_tv|
 |![ic_twitter](/preview/ic_twitter.png)|ic_twitter|
 |![ic_upload](/preview/ic_upload.png)|ic_upload|
