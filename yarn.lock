@@ -250,7 +250,7 @@ string_decoder@~1.1.1:
   dependencies:
     safe-buffer "~5.1.0"
 
-svg-to-img@^2.0.9:
+svg-to-img@2.0.9:
   version "2.0.9"
   resolved "https://registry.yarnpkg.com/svg-to-img/-/svg-to-img-2.0.9.tgz#0a36a2d179d2606a5760f1f67dc8ddc84fd6a930"
   integrity sha512-FPQc7gPJq54d7cjD4vDahaXMIpZv4bk1AJOMuRtqylwdaszaAIFqgTLuP3lZFDGydAPW2okFzf3ZrwuOyRxNvw==
