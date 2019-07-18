@@ -4,8 +4,8 @@
     "website": "http://www.stremio.com",
     "version": "1.0.10",
     "scripts": {
-        "updateReadme": "node ./scripts/updateReadme.js",
-        "updateIcons": "node ./scripts/updateIcons.js"
+        "update-readme": "node ./scripts/updateReadme.js",
+        "update-icons": "node ./scripts/updateIcons.js"
     },
     "repository": {
         "type": "git",
