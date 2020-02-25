@@ -1,16 +1,17 @@
 @font-face {
-  font-family: 'icon-full-height';
+  font-family: 'stremio-icons';
   src:
-    url('fonts/icon-full-height.ttf?e4fsro') format('truetype'),
-    url('fonts/icon-full-height.woff?e4fsro') format('woff'),
-    url('fonts/icon-full-height.svg?e4fsro#icon-full-height') format('svg');
+    url('fonts/stremio-icons.ttf?3szw8c') format('truetype'),
+    url('fonts/stremio-icons.woff?3szw8c') format('woff'),
+    url('fonts/stremio-icons.svg?3szw8c#stremio-icons') format('svg');
   font-weight: normal;
   font-style: normal;
+  font-display: block;
 }
 
 [class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'icon-full-height' !important;
+  font-family: 'stremio-icons' !important;
   speak: none;
   font-style: normal;
   font-weight: normal;
@@ -23,44 +24,53 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-ic_arrow_right:before {
+  content: "\e92a";
+}
 .icon-ic_arrow_thin_left:before {
-  content: "\e965";
+  content: "\e945";
 }
 .icon-ic_arrow_thin_right:before {
-  content: "\e964";
-}
-.icon-ic_p2p:before {
-  content: "\e95c";
-}
-.icon-ic_arrow_right:before {
-  content: "\e95d";
+  content: "\e946";
 }
 .icon-ic_arrow_up:before {
-  content: "\e95e";
+  content: "\e947";
 }
 .icon-ic_bell:before {
-  content: "\e95f";
+  content: "\e948";
+}
+.icon-ic_bell_dot:before {
+  content: "\e949";
 }
 .icon-ic_broken_link:before {
-  content: "\e960";
-}
-.icon-ic_folder:before {
-  content: "\e961";
-}
-.icon-ic_laptop:before {
-  content: "\e962";
-}
-.icon-ic_triangle_down:before {
-  content: "\e963";
-}
-.icon-ic_exit_fullscreen:before {
-  content: "\e959";
-}
-.icon-ic_player_fullscreen:before {
-  content: "\e95a";
+  content: "\e94a";
 }
 .icon-ic_data_export:before {
-  content: "\e95b";
+  content: "\e94b";
+}
+.icon-ic_exit_fullscreen:before {
+  content: "\e94c";
+}
+.icon-ic_folder:before {
+  content: "\e94d";
+}
+.icon-ic_fullscreen:before {
+  content: "\e94e";
+}
+.icon-ic_laptop:before {
+  content: "\e94f";
+}
+.icon-ic_p2p:before {
+  content: "\e950";
+}
+.icon-ic_reset_2:before {
+  content: "\e951";
+}
+.icon-ic_search_link:before {
+  content: "\e952";
+}
+.icon-ic_triangle_down:before {
+  content: "\e953";
 }
 .icon-ic_tv:before {
   content: "\e9e3";
@@ -107,17 +117,11 @@
 .icon-ic_arrow_left:before {
   content: "\e9f1";
 }
-.icon-ic_fullscreen:before {
-  content: "\e9f2";
-}
 .icon-ic_user:before {
   content: "\e9f3";
 }
 .icon-ic_cloud:before {
   content: "\e9f4";
-}
-.icon-ic_apple_tv:before {
-  content: "\e9f5";
 }
 .icon-ic_arrow_down:before {
   content: "\e9f6";
@@ -134,74 +138,8 @@
 .icon-ic_glasses:before {
   content: "\e9fa";
 }
-.icon-ic_gplus:before {
-  content: "\e9fb";
-}
 .icon-ic_grid:before {
   content: "\e9fc";
-}
-.icon-ic_amazon:before {
-  content: "\e944";
-}
-.icon-ic_cbs:before {
-  content: "\e945";
-}
-.icon-ic_cinemanow:before {
-  content: "\e946";
-}
-.icon-ic_epix:before {
-  content: "\e947";
-}
-.icon-ic_fandangonow:before {
-  content: "\e948";
-}
-.icon-ic_flixster:before {
-  content: "\e949";
-}
-.icon-ic_fox:before {
-  content: "\e94a";
-}
-.icon-ic_google_play:before {
-  content: "\e94b";
-}
-.icon-ic_hbo:before {
-  content: "\e94c";
-}
-.icon-ic_hbo_now:before {
-  content: "\e94d";
-}
-.icon-ic_hulu:before {
-  content: "\e94e";
-}
-.icon-ic_itunes:before {
-  content: "\e94f";
-}
-.icon-ic_netflix:before {
-  content: "\e950";
-}
-.icon-ic_paramount_movies:before {
-  content: "\e951";
-}
-.icon-ic_showtime:before {
-  content: "\e952";
-}
-.icon-ic_sony:before {
-  content: "\e953";
-}
-.icon-ic_verizon:before {
-  content: "\e954";
-}
-.icon-ic_vudu:before {
-  content: "\e955";
-}
-.icon-ic_xbox:before {
-  content: "\e956";
-}
-.icon-ic_xfinity:before {
-  content: "\e957";
-}
-.icon-ic_youtube:before {
-  content: "\e958";
 }
 .icon-ic_imdbnoframe:before {
   content: "\e93d";
@@ -323,7 +261,7 @@
   content: "\e929";
 }
 .icon-ic_youtube_small:before {
-  content: "\e92a";
+  content: "\e944";
 }
 .icon-ic_blind:before {
   content: "\e92b";
