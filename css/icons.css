@@ -1,9 +1,9 @@
 @font-face {
   font-family: 'stremio-icons';
   src:
-    url('fonts/stremio-icons.ttf?3szw8c') format('truetype'),
-    url('fonts/stremio-icons.woff?3szw8c') format('woff'),
-    url('fonts/stremio-icons.svg?3szw8c#stremio-icons') format('svg');
+    url('fonts/stremio-icons.ttf?8777kk') format('truetype'),
+    url('fonts/stremio-icons.woff?8777kk') format('woff'),
+    url('fonts/stremio-icons.svg?8777kk#stremio-icons') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -24,6 +24,45 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-ic_adult:before {
+  content: "\e954";
+}
+.icon-ic_arrow_thin_down:before {
+  content: "\e955";
+}
+.icon-ic_arrow_thin_up:before {
+  content: "\e956";
+}
+.icon-ic_book:before {
+  content: "\e957";
+}
+.icon-ic_circle:before {
+  content: "\e958";
+}
+.icon-ic_games:before {
+  content: "\e959";
+}
+.icon-ic_info:before {
+  content: "\e95a";
+}
+.icon-ic_music:before {
+  content: "\e95b";
+}
+.icon-ic_play_next:before {
+  content: "\e95c";
+}
+.icon-ic_play_prev:before {
+  content: "\e95d";
+}
+.icon-ic_podcast:before {
+  content: "\e95e";
+}
+.icon-ic_radio:before {
+  content: "\e95f";
+}
+.icon-ic_videos:before {
+  content: "\e960";
+}
 .icon-ic_arrow_right:before {
   content: "\e92a";
 }
