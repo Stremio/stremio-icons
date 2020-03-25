@@ -1,9 +1,9 @@
 @font-face {
   font-family: 'stremio-icons';
   src:
-    url('fonts/stremio-icons.ttf?8777kk') format('truetype'),
-    url('fonts/stremio-icons.woff?8777kk') format('woff'),
-    url('fonts/stremio-icons.svg?8777kk#stremio-icons') format('svg');
+    url('fonts/stremio-icons.ttf?dtk25b') format('truetype'),
+    url('fonts/stremio-icons.woff?dtk25b') format('woff'),
+    url('fonts/stremio-icons.svg?dtk25b#stremio-icons') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -138,7 +138,7 @@
 .icon-ic_stremio_tray:before {
   content: "\e9eb";
 }
-.icon-ic_trackt:before {
+.icon-ic_trakt:before {
   content: "\e9ec";
 }
 .icon-ic_twitter:before {

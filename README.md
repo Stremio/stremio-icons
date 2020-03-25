@@ -38,7 +38,7 @@
 |![ic_report](/preview/ic_report.png)|ic_report|
 |![ic_reset_1](/preview/ic_reset_1.png)|ic_reset_1|
 |![ic_stremio_tray](/preview/ic_stremio_tray.png)|ic_stremio_tray|
-|![ic_trackt](/preview/ic_trackt.png)|ic_trackt|
+|![ic_trakt](/preview/ic_trakt.png)|ic_trakt|
 |![ic_twitter](/preview/ic_twitter.png)|ic_twitter|
 |![ic_volume1](/preview/ic_volume1.png)|ic_volume1|
 |![ic_volume2](/preview/ic_volume2.png)|ic_volume2|
