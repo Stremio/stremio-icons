@@ -1,6 +1,6 @@
 var React = require('react');
 var PropTypes = require('prop-types');
-var icons = require('./icons');
+var icons = require('../icons.json');
 
 var Icon = React.forwardRef(function(props, ref) {
     var icon = icons[props.icon];
