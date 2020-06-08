@@ -9,8 +9,5 @@
     "repository": {
         "type": "git",
         "url": "git+ssh://git@github.com/Stremio/stremio-icons.git"
-    },
-    "devDependencies": {
-        "svg-to-img": "2.0.9"
     }
 }
