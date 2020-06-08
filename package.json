@@ -9,5 +9,9 @@
     "repository": {
         "type": "git",
         "url": "git+ssh://git@github.com/Stremio/stremio-icons.git"
+    },
+    "devDependencies": {
+        "mkdirp": "1.0.4",
+        "rimraf": "3.0.2"
     }
 }
