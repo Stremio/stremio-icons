@@ -25,7 +25,7 @@ fs.writeFileSync(
 |:---:|:---:|\n`
     +
     icons.icons.map((icon) => {
-        return `|![${icon.properties.name}](/png/${icon.properties.name}.png)|${icon.properties.name}|`;
+        return `|![${icon.properties.name}](${icon.properties.name}.png)|${icon.properties.name}|`;
     }).join('\n')
 );
 
@@ -63,6 +63,7 @@ ${paths.map((path) => `\t<path
         `<svg viewBox="0 0 ${width} ${height}">${paths.map((d) => `<path d="${d}" />`)}</svg>`
     );
     execSync(`inkscape -z -w ${width / 16} -h ${height / 16} tmp.svg -e png/${name}.png`);
+    execSync(`inkscape -z -w ${width / 30} -h ${height / 30} tmp.svg -e docs/${name}.png`);
     rimraf.sync('tmp.svg');
 });
 
