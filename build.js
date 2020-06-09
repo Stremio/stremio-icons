@@ -78,11 +78,11 @@ fs.writeFileSync(
         return `var ${icon.properties.name} = require('./${icon.properties.name}.png');`;
     }).join('\n')
     +
-    '\nmodule.exports =\n'
+    '\nmodule.exports = {\n'
     +
     icons.icons.map((icon) => icon.properties.name).join(',\n')
     +
-    '}'
+    '\n};'
 );
 
 rimraf.sync('icons');
