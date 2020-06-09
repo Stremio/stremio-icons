@@ -21,7 +21,12 @@ fs.copyFileSync('icons/style.css', 'css/icons.css');
 
 fs.writeFileSync(
     'docs/index.md',
-    `|preview|name|
+    `---
+layout: default
+title: Stremio Icons
+---
+
+|preview|name|
 |:---:|:---:|\n`
     +
     icons.icons.map((icon) => {
