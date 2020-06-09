@@ -7,8 +7,11 @@ mkdirp.sync('android/src/main/res/drawable');
 mkdirp.sync('png');
 mkdirp.sync('fonts');
 mkdirp.sync('css');
+mkdirp.sync('docs');
 
 execSync(`unzip icons.zip -d icons`);
+
+const icons = require('./icons/selection.json');
 
 fs.copyFileSync('icons/fonts/stremio-icons.svg', 'fonts/stremio-icons.svg');
 fs.copyFileSync('icons/fonts/stremio-icons.ttf', 'fonts/stremio-icons.ttf');
@@ -16,7 +19,15 @@ fs.copyFileSync('icons/fonts/stremio-icons.woff', 'fonts/stremio-icons.woff');
 
 fs.copyFileSync('icons/style.css', 'css/icons.css');
 
-const icons = require('./icons/selection.json');
+fs.writeFileSync(
+    'docs/index.md',
+    `|preview|name|
+|:---:|:---:|\n`
+    +
+    icons.icons.map((icon) => {
+        return `|![${icon.properties.name}](/png/${icon.properties.name}.png)|${icon.properties.name}|`;
+    }).join('\n')
+);
 
 fs.writeFileSync(
     'dom/icons.json',
