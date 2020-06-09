@@ -1,5 +1,5 @@
 {
-    "name": "stremio-icons",
+    "name": "@stremio/stremio-icons",
     "version": "2.0.3",
     "description": "Icon set for all Stremio clients",
     "author": {
