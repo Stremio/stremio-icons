@@ -6,12 +6,15 @@ const mkdirp = require('mkdirp');
 mkdirp.sync('android/src/main/res/drawable');
 mkdirp.sync('png');
 mkdirp.sync('fonts');
+mkdirp.sync('css');
 
 execSync(`unzip icons.zip -d icons`);
 
 fs.copyFileSync('icons/fonts/stremio-icons.svg', 'fonts/stremio-icons.svg');
 fs.copyFileSync('icons/fonts/stremio-icons.ttf', 'fonts/stremio-icons.ttf');
 fs.copyFileSync('icons/fonts/stremio-icons.woff', 'fonts/stremio-icons.woff');
+
+fs.copyFileSync('icons/style.css', 'css/icons.css');
 
 const icons = require('./icons/selection.json');
 
