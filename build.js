@@ -9,7 +9,7 @@ execSync(`unzip icons.zip -d icons`);
 const icons = require('./icons/selection.json');
 
 fs.writeFileSync(
-    'icons.json',
+    'dom/icons.json',
     JSON.stringify(icons.icons.reduce((result, icon) => {
         result[icon.properties.name] = {
             viewBox: `0 0 ${icon.icon.width || icons.height} ${icons.height}`,
