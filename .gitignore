@@ -3,8 +3,8 @@ package-lock.json
 /node_modules
 /docs
 /icons
-/android/src/main/res/drawable/
-/png
+/android/src/main/res/drawable
+/native/png
 /css
 /fonts
 /dom/icons.json

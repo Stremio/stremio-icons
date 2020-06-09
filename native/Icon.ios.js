@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { View, Image } from 'react-native';
-import icons from '../png';
+import icons from './png';
 
 class Icon extends PureComponent {
     render() {
