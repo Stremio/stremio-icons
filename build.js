@@ -1,59 +1,61 @@
 const fs = require('fs');
-const svgToImg = require('svg-to-img');
-const icons = require('./icons.json');
+const { execSync } = require('child_process');
+const rimraf = require('rimraf');
+const mkdirp = require('mkdirp');
 
-const androidDrawables = icons.icons.map((icon) => {
+mkdirp.sync('android/src/main/res/drawable');
+mkdirp.sync('png');
+execSync(`unzip icons.zip -d icons`);
+const icons = require('./icons/selection.json');
+
+fs.writeFileSync(
+    'icons.json',
+    JSON.stringify(icons.icons.reduce((result, icon) => {
+        result[icon.properties.name] = {
+            viewBox: `0 0 ${icon.icon.width || icons.height} ${icons.height}`,
+            paths: icon.icon.paths
+        };
+        return result;
+    }, {}))
+);
+
+icons.icons.forEach((icon) => {
+    const name = icon.properties.name;
     const width = icon.icon.width || icons.height;
-    const drawable = `<?xml version="1.0" encoding="utf-8"?>
+    const height = icons.height;
+    const paths = icon.icon.paths;
+    fs.writeFileSync(
+        `android/src/main/res/drawable/${name}.xml`,
+        `<?xml version="1.0" encoding="utf-8"?>
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
 \tandroid:width="${width / 20}dp"
-\tandroid:height="${icons.height / 20}dp"
+\tandroid:height="${height / 20}dp"
 \tandroid:viewportWidth="${width}"
-\tandroid:viewportHeight="${icons.height}">
-${icon.icon.paths.map((path) => `\t<path
+\tandroid:viewportHeight="${height}">
+${paths.map((path) => `\t<path
 \t\tandroid:fillColor="#ffffffff"
-\t\tandroid:pathData="${path}" />`)
-            .join('\n')
-        }
-</vector>`;
-    return {
-        name: icon.properties.name,
-        drawable
-    };
+\t\tandroid:pathData="${path}" />`).join('\n')}
+</vector>`
+    );
+    fs.writeFileSync(
+        'tmp.svg',
+        `<svg viewBox="0 0 ${width} ${height}">${paths.map((d) => `<path d="${d}" />`)}</svg>`
+    );
+    execSync(`inkscape -z -w ${width / 16} -h ${height / 16} tmp.svg -e png/${name}.png`);
+    rimraf.sync('tmp.svg');
 });
 
-const webIcons = icons.icons.reduce((webIcons, icon) => {
-    webIcons[icon.properties.name] = {
-        viewBox: `0 0 ${icon.icon.width || icons.height} ${icons.height}`,
-        paths: icon.icon.paths
-    };
-    return webIcons;
-}, {});
+fs.writeFileSync(
+    'png/index.js',
+    icons.icons.map((icon) => {
+        return `var ${icon.properties.name} = require('./${icon.properties.name}.png');`;
+    }).join('\n')
+    +
+    '\nmodule.exports =\n'
+    +
+    icons.icons.map((icon) => icon.properties.name).join(',\n')
+    +
+    '}'
+);
 
-const previewIcons = Promise.all(icons.icons.map((icon) => {
-    const svg = `
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${icon.icon.width || icons.height} ${icons.height}">
-            ${icon.icon.paths.map((d) => `<path d="${d}" />`)}
-        </svg>
-    `;
-    return svgToImg.from(svg).toPng({ height: 32 }).then((image) => ({
-        name: icon.properties.name,
-        image
-    }));
-}));
-
-const readme = '|preview|name|\n' +
-    '|:---:|:---:|\n' +
-    icons.icons.map((icon) => `|![${icon.properties.name}](/preview/${icon.properties.name}.png)|${icon.properties.name}|`)
-        .join('\n');
-
-androidDrawables.forEach(({ name, drawable }) => {
-    fs.writeFileSync(`./android/src/main/res/drawable/${name}.xml`, drawable);
-});
-fs.writeFileSync(`./dom/icons.json`, JSON.stringify(webIcons));
-fs.writeFileSync('./README.md', readme);
-previewIcons.then((icons) => {
-    icons.forEach(({ name, image }) => {
-        fs.writeFileSync(`./preview/${name}.png`, image);
-    });
-});
+rimraf.sync('icons');
