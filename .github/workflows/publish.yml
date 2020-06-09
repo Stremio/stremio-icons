@@ -15,6 +15,12 @@ jobs:
         registry-url: https://registry.npmjs.org/
     - name: Checkout
       uses: actions/checkout@v2
+    - name: Add Inkscape PPA
+      run: sudo add-apt-repository ppa:inkscape.dev/stable-0.92
+    - name: Update APT
+      run: sudo apt update
+    - name: Install Inkscape
+      run: sudo apt install inkscape
     - name: Install NPM Dependencies
       run: npm install
     - name: Build
