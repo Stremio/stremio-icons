@@ -8,12 +8,12 @@
         "url": "https://stremio.com"
     },
     "license": "MIT",
-    "scripts": {
-        "build": "node build.js"
-    },
     "repository": {
         "type": "git",
-        "url": "git+ssh://git@github.com/Stremio/stremio-icons.git"
+        "url": "https://github.com/stremio/stremio-icons.git"
+    },
+    "scripts": {
+        "build": "node build.js"
     },
     "devDependencies": {
         "mkdirp": "1.0.4",
