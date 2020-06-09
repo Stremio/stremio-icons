@@ -1,3 +1,8 @@
+---
+layout: default
+title: Stremio Icons
+---
+
 |preview|name|
 |:---:|:---:|
 |![ic_adult](ic_adult.png)|ic_adult|
