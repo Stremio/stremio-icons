@@ -13,9 +13,13 @@ const styles = StyleSheet.create({
 class Icon extends PureComponent {
     render() {
         const { style, icon, color } = this.props;
+        const tintColor = typeof color === 'string' ? 
+            `#${color.slice(3, 10)}${color.slice(1, 3)}`
+            :
+            null;
         return (
             <Image
-                style={[styles.icon, style, { tintColor: color }]}
+                style={[styles.icon, style, { tintColor }]}
                 source={icons[icon]}
                 resizeMode={'contain'}
             />
