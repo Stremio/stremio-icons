@@ -14,5 +14,6 @@ before_install:
   - unzip -q gradle-"$GRADLE_VERSION"-bin.zip
   - rm -f gradle-"$GRADLE_VERSION"-bin.zip
   - ./gradle-6.5/bin/gradle --offline wrapper
+  - npm ci
   - npm run build -- android
   - cp -r ./android/* .
