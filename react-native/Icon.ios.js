@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { View, Image, StyleSheet } from 'react-native';
-import icons from './png';
+import icons from './ios/png';
 
 const styles = StyleSheet.create({
     icon: {
