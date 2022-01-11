@@ -1,9 +1,9 @@
 env:
-  NODE_VERSION: "v12.22.1"
+  NODE_VERSION: "12.22.1"
   NODE_SHA256: "d315c5dea4d96658164cdb257bd8dbb5e44bdd2a7c1d747841f06515f23a0042"
 before_install:
-  - wget -q https://nodejs.org/dist/"$NODE_VERSION"/node-"$NODE_VERSION"-linux-x64.tar.gz
-  - echo "$NODE_SHA256" node-"$NODE_VERSION"-linux-x64.tar.gz | sha256sum -c
-  - tar -xf node-"$NODE_VERSION"-linux-x64.tar.gz
-  - export PATH=$PATH:`pwd`/node-"$NODE_VERSION"-linux-x64/bin
+  - wget -q https://nodejs.org/dist/v"$NODE_VERSION"/node-v"$NODE_VERSION"-linux-x64.tar.gz
+  - echo "$NODE_SHA256" node-v"$NODE_VERSION"-linux-x64.tar.gz | sha256sum -c
+  - tar -xf node-v"$NODE_VERSION"-linux-x64.tar.gz
+  - export PATH=$PATH:`pwd`/node-v"$NODE_VERSION"-linux-x64/bin
   - node --version
