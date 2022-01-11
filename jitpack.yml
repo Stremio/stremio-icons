@@ -1,2 +1,9 @@
+env:
+  NODE_VERSION: "v12.22.1"
+  NODE_SHA256: "917c582b7f7ae5ff8b2d97e05d00598011f9fbfcc4f76952da3ed477405c9c1a"
 before_install:
+  - wget -q https://nodejs.org/dist/"$NODE_VERSION"/node-"$NODE_VERSION"-linux-arm64.tar.gz
+  - echo "$NODE_SHA256" node-"$NODE_VERSION"-linux-arm64.tar.gz | sha256sum -c
+  - tar -xf node-"$NODE_VERSION"-linux-arm64.tar.gz
+  - export PATH=$PATH:`pwd`/node-"$NODE_VERSION"-linux-arm64/bin
   - node --version
