@@ -15,4 +15,7 @@ before_install:
   - rm -f gradle-"$GRADLE_VERSION"-bin.zip
   - ./gradle-6.5/bin/gradle --offline wrapper
   - rm -rf gradle-6.5
-  - ./gradlew --version
+  - sudo add-apt-repository ppa:inkscape.dev/stable-0.92
+  - sudo apt update
+  - sudo apt install inkscape
+  - inkscape --version
