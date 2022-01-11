@@ -3,6 +3,8 @@ env:
   NODE_SHA256: "d315c5dea4d96658164cdb257bd8dbb5e44bdd2a7c1d747841f06515f23a0042"
   GRADLE_VERSION: "6.5"
   GRADLE_SHA256: "23e7d37e9bb4f8dabb8a3ea7fdee9dd0428b9b1a71d298aefd65b11dccea220f"
+  INKSCAPE_VERSION: "0.92.4-3"
+  INKSCAPE_SHA256: "c2bb9d2b98c24e813975c5370a43a7a692848866760a0628a04ff2eb4265517e"
 before_install:
   - wget -q https://nodejs.org/dist/v"$NODE_VERSION"/node-v"$NODE_VERSION"-linux-x64.tar.gz
   - echo "$NODE_SHA256" node-v"$NODE_VERSION"-linux-x64.tar.gz | sha256sum -c
@@ -15,7 +17,11 @@ before_install:
   - rm -f gradle-"$GRADLE_VERSION"-bin.zip
   - ./gradle-6.5/bin/gradle --offline wrapper
   - rm -rf gradle-6.5
-  - add-apt-repository ppa:inkscape.dev/stable-0.92
-  - apt update
-  - apt install inkscape
+  - wget -q http://ftp.de.debian.org/debian/pool/main/i/inkscape/inkscape_${INKSCAPE_VERSION}_amd64.deb
+  - echo "$INKSCAPE_SHA256" inkscape_${INKSCAPE_VERSION}_amd64.deb | sha256sum -c
+  - ar x inkscape_${INKSCAPE_VERSION}_amd64.deb ./data.tar.xz
+  - rm -f inkscape_${INKSCAPE_VERSION}_amd64.deb
+  - tar xvf data.tar.xz --wildcards './usr/bin/*'
+  - rm -f data.tar.xz
+  - export PATH=$PATH:`pwd`/usr/bin
   - inkscape --version
