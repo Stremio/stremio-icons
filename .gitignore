@@ -4,7 +4,7 @@ package-lock.json
 /docs
 /icons
 /android/src/main/res/drawable
-/native/png
+/react-native/png
 /css
 /fonts
 /dom/icons.json

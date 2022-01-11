@@ -4,7 +4,7 @@ const rimraf = require('rimraf');
 const mkdirp = require('mkdirp');
 
 mkdirp.sync('android/src/main/res/drawable');
-mkdirp.sync('native/png');
+mkdirp.sync('react-native/png');
 mkdirp.sync('fonts');
 mkdirp.sync('css');
 mkdirp.sync('docs');
@@ -67,13 +67,13 @@ ${paths.map((path) => `\t<path
         'tmp.svg',
         `<svg viewBox="0 0 ${width} ${height}">${paths.map((d) => `<path d="${d}" />`)}</svg>`
     );
-    execSync(`inkscape -z -w ${width / 16} -h ${height / 16} tmp.svg -e native/png/${name}.png`);
+    execSync(`inkscape -z -w ${width / 16} -h ${height / 16} tmp.svg -e react-native/png/${name}.png`);
     execSync(`inkscape -z -w ${width / 30} -h ${height / 30} tmp.svg -e docs/${name}.png`);
     rimraf.sync('tmp.svg');
 });
 
 fs.writeFileSync(
-    'native/png/index.js',
+    'react-native/png/index.js',
     icons.icons.map((icon) => {
         return `var ${icon.properties.name} = require('./${icon.properties.name}.png');`;
     }).join('\n')
