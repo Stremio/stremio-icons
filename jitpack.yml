@@ -19,9 +19,8 @@ before_install:
   - rm -rf gradle-6.5
   - wget -q http://ftp.de.debian.org/debian/pool/main/i/inkscape/inkscape_${INKSCAPE_VERSION}_amd64.deb
   - echo "$INKSCAPE_SHA256" inkscape_${INKSCAPE_VERSION}_amd64.deb | sha256sum -c
-  - ar x inkscape_${INKSCAPE_VERSION}_amd64.deb ./data.tar.xz
+  - mkdir -p inkscape
+  - dpkg -x inkscape_${INKSCAPE_VERSION}_amd64.deb inkscape
   - rm -f inkscape_${INKSCAPE_VERSION}_amd64.deb
-  - tar xvf data.tar.xz --wildcards './usr/bin/*'
-  - rm -f data.tar.xz
-  - export PATH=$PATH:`pwd`/usr/bin
+  - export PATH=$PATH:`pwd`/inkscape/usr/bin
   - inkscape --version
