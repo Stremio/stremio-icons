@@ -1,6 +1,6 @@
 {
     "name": "@stremio/stremio-icons",
-    "version": "4.0.0",
+    "version": "5.0.0",
     "description": "Icon set for all Stremio clients",
     "author": {
         "name": "Smart Code Ltd.",
@@ -12,11 +12,13 @@
         "type": "git",
         "url": "https://github.com/stremio/stremio-icons.git"
     },
+    "main": "dom",
     "scripts": {
         "build": "node build.js"
     },
     "devDependencies": {
-        "mkdirp": "1.0.4",
-        "rimraf": "3.0.2"
+        "change-case": "^4.1.2",
+        "svg-path": "^0.2.1",
+        "xml-js": "^1.6.11"
     }
 }
