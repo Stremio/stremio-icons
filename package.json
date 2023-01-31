@@ -16,7 +16,8 @@
         "build": "node scripts/build.js"
     },
     "dependencies": {
-        "change-case": "^4.1.2"
+        "change-case": "^4.1.2",
+        "prop-types": "^15.8.1"
     },
     "devDependencies": {
         "sharp": "^0.31.3",
