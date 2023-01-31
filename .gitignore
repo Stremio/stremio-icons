@@ -2,7 +2,6 @@
 package-lock.json
 /node_modules
 /docs
-/icons
 /android/src/main/res/drawable
 /react-native/android/src/main/res/drawable
 /react-native/ios/png
