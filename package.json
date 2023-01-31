@@ -15,8 +15,10 @@
     "scripts": {
         "build": "node scripts/build.js"
     },
+    "dependencies": {
+        "change-case": "^4.1.2"
+    },
     "devDependencies": {
-        "change-case": "^4.1.2",
         "sharp": "^0.31.3",
         "svg-path": "^0.2.1",
         "xml-js": "^1.6.11"
