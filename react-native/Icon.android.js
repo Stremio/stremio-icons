@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { View, requireNativeComponent } from 'react-native';
+import { snakeCase } from 'change-case';
 
 class Icon extends PureComponent {
     render() {
@@ -9,7 +10,7 @@ class Icon extends PureComponent {
         return (
             <RCTIcon
                 style={style}
-                icon={icon}
+                icon={snakeCase(icon)}
                 color={color}
             />
         );
