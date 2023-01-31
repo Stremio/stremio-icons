@@ -5,12 +5,12 @@ import { snakeCase } from 'change-case';
 
 class Icon extends PureComponent {
     render() {
-        const { style, icon, color } = this.props;
+        const { style, name, color } = this.props;
 
         return (
             <RCTIcon
                 style={style}
-                icon={snakeCase(icon)}
+                icon={snakeCase(name)}
                 color={color}
             />
         );
@@ -19,7 +19,7 @@ class Icon extends PureComponent {
 
 Icon.propTypes = {
     ...View.propTypes,
-    icon: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
     color: PropTypes.string.isRequired
 };
 Icon.defaultProps = {

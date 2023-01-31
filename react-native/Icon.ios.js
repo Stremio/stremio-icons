@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
 
 class Icon extends PureComponent {
     render() {
-        const { style, icon, color } = this.props;
+        const { style, name, color } = this.props;
         const tintColor = typeof color === 'string' ? 
             `#${color.slice(3, 10)}${color.slice(1, 3)}`
             :
@@ -20,7 +20,7 @@ class Icon extends PureComponent {
         return (
             <Image
                 style={[styles.icon, style, { tintColor }]}
-                source={icons[icon]}
+                source={icons[name]}
                 resizeMode={'contain'}
             />
         );
@@ -29,7 +29,7 @@ class Icon extends PureComponent {
 
 Icon.propTypes = {
     ...View.propTypes,
-    icon: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
     color: PropTypes.string.isRequired
 };
 Icon.defaultProps = {
