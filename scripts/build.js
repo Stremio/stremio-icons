@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const { xml2js } = require('xml-js');
 const svgPath = require('svg-path');
+const { parseSVG } = require('svg-path-parser');
 const buildReact = require('./buildReact');
 const buildReactNative = require('./buildReactNative');
 const buildDocs = require('./buildDocs');
@@ -27,13 +28,20 @@ const parsedSVG = xml2js(svgIcons);
 
 const stremioIcons = findSVGElement(parsedSVG, 'stremio-icons');
 
-const icons = stremioIcons.elements.filter(({ name }) => name === 'g').map((icon) => {
-    const iconOuter = icon.elements.find(({ name }) => name === 'rect');
-    const iconInner = icon.elements.find(({ name }) => name !== 'rect');
+const ICON_SIZE = 512;
 
-    const width = iconOuter.attributes.width;
-    const height = iconOuter.attributes.height;
-    const viewBox = `0 0 ${width} ${height}`;
+const icons = stremioIcons.elements.filter(({ name }) => name === 'g').map((icon) => {
+    const iconOuter = icon.elements.find(({ name }) => name === 'path');
+    const iconInner = icon.elements.find(({ name }) => name === 'g');
+
+    const pathCommands = parseSVG(iconOuter.attributes.d);
+    const moveToCommand = pathCommands[0];
+    const iconOuterOffset = {
+        x: -(moveToCommand.x - ICON_SIZE),
+        y: -moveToCommand.y,
+    };
+
+    const viewBox = `0 0 ${ICON_SIZE} ${ICON_SIZE}`;
 
     const paths = iconInner.elements.map(({ attributes }) => {
         const ignoreAttributes = ['id', 'd', 'fill', 'stroke'];
@@ -44,7 +52,7 @@ const icons = stremioIcons.elements.filter(({ name }) => name === 'g').map((icon
         }
 
         const path = svgPath(attributes.d);
-        path.translate(-iconOuter.attributes.x | 0, -iconOuter.attributes.y | 0);
+        path.translate(iconOuterOffset.x, iconOuterOffset.y);
         const d = path.toString();
 
         return {
@@ -55,8 +63,8 @@ const icons = stremioIcons.elements.filter(({ name }) => name === 'g').map((icon
 
     return {
         name: icon.attributes.id,
-        width,
-        height,
+        width: ICON_SIZE,
+        height: ICON_SIZE,
         viewBox,
         paths,
     }
