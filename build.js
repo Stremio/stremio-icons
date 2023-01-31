@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const { xml2js } = require('xml-js');
 const svgPath = require('svg-path');
-const { camelCase, paramCase } = require('change-case');
+const { camelCase, paramCase, snakeCase } = require('change-case');
 const sharp = require('sharp');
 
 const findSVGElement = (object, id) => {
@@ -30,7 +30,10 @@ const icons = stremioIcons.elements.filter(({ name }) => name === 'g').map((icon
     const iconOuter = icon.elements.find(({ name }) => name === 'rect');
     const iconInner = icon.elements.find(({ name }) => name !== 'rect');
 
-    const viewBox = `0 0 ${iconOuter.attributes.width} ${iconOuter.attributes.height}`;
+    const width = iconOuter.attributes.width;
+    const height = iconOuter.attributes.height;
+    const viewBox = `0 0 ${width} ${height}`;
+
     const paths = iconInner.elements.map(({ attributes }) => {
         const ignoreAttributes = ['id', 'd', 'fill', 'stroke'];
         const styles = Object.fromEntries(Object.entries(attributes).filter(([key]) => !ignoreAttributes.includes(key)));
@@ -51,10 +54,58 @@ const icons = stremioIcons.elements.filter(({ name }) => name === 'g').map((icon
 
     return {
         name: icon.attributes.id,
+        width,
+        height,
         viewBox,
         paths,
     }
 });
+
+const toPngFiles = (icons, size) => {
+    const toInlineBlackStyle = (style) => {
+        const styleEntries = Object.entries(style);
+        if (styleEntries.some(([key]) => key === 'stroke-width')) {
+            styleEntries.push(['stroke', '#000000']);
+        }
+
+        return styleEntries
+            .map(([key, value]) => `${paramCase(key)}:${value}`)
+            .join(';');
+    };
+
+    const toSVGFile = (viewBox, paths) => {
+        const svgPaths = paths
+            .map(({ d, styles }) => `<path d="${d}" style="${toInlineBlackStyle(styles)}" />`)
+            .join('');
+        return `<svg viewBox="${viewBox}">${svgPaths}</svg>`;
+    };
+
+    return Promise.all(icons.map(async ({ name, viewBox, paths }) => {
+        const svgBuffer = Buffer.from(toSVGFile(viewBox, paths));
+        const pngBuffer = await sharp(svgBuffer).png().resize(size, size).toBuffer();
+        return {
+            name,
+            buffer: pngBuffer
+        };
+    }));
+};
+
+const toDrawable = (icon) => {
+    return Buffer.from([
+        '<?xml version="1.0" encoding="utf-8"?>',
+        '<vector xmlns:android="http://schemas.android.com/apk/res/android"',
+        `\tandroid:width="${(icon.width || icon.height) / 20}dp"`,
+        `\tandroid:height="${icon.height / 20}dp"`,
+        `\tandroid:viewportWidth="${icon.width || icon.height}"`,
+        `\tandroid:viewportHeight="${icon.height}">`,
+            icon.paths.map(({ d }) => [
+                '\t<path',
+                '\t\tandroid:fillColor="#ffffffff"',
+                `\t\tandroid:pathData="${d}" />`
+            ].join('\n')).join('\n'),
+        '</vector>'
+    ].join('\n'));
+};
 
 if (process.argv.includes('all') || process.argv.includes('dom')) {
     const styleAttribtutes = ['stroke-width', 'stroke-miterlimit', 'stroke-linejoin', 'stroke-linecap', 'fill'];
@@ -83,35 +134,40 @@ if (process.argv.includes('all') || process.argv.includes('dom')) {
     fs.writeFileSync('dom/icons.json', JSON.stringify(JSONIcons));
 }
 
-if (process.argv.includes('all') || process.argv.includes('docs')) {
-    const toInlineBlackStyle = (style) => {
-        const styleEntries = Object.entries(style);
-        if (styleEntries.some(([key]) => key === 'stroke-width')) {
-            styleEntries.push(['stroke', '#000000']);
-        }
-
-        return styleEntries
-            .map(([key, value]) => `${paramCase(key)}:${value}`)
-            .join(';');
-    };
-
-    const toSVGFile = (viewBox, paths) => {
-        const svgPaths = paths
-            .map(({ d, styles }) => `<path d="${d}" style="${toInlineBlackStyle(styles)}" />`)
-            .join('');
-        return `<svg viewBox="${viewBox}">${svgPaths}</svg>`;
-    };
-
+if (process.argv.includes('all') || process.argv.includes('react-native')) {
     (async () => {
-        const pngFiles = await Promise.all(icons.map(async ({ name, viewBox, paths }) => {
-            const svgBuffer = Buffer.from(toSVGFile(viewBox, paths));
-            const pngBuffer = await sharp(svgBuffer).png().resize(32, 32).toBuffer();
-            return {
-                name,
-                buffer: pngBuffer
-            };
-        }));
-        
+        const reactNativePath = path.join(__dirname, 'react-native');
+        const iosResourcesPath = path.join(reactNativePath, 'ios', 'png');
+        const androidResourcesPath = path.join(reactNativePath, 'android', 'src', 'main', 'res', 'drawable');
+
+        fs.mkdirSync(iosResourcesPath, { recursive: true });
+        fs.mkdirSync(androidResourcesPath, { recursive: true });
+
+        // iOS
+        const pngFiles = await toPngFiles(icons, 64);
+        pngFiles.forEach(({ name, buffer }) => {
+            fs.writeFileSync(path.join(iosResourcesPath, `${name}.png`), buffer);
+        });
+
+        const pngFilesJSIndex = [
+            'module.exports = {',
+                pngFiles.map(({ name }) => `['${name}']: require('./${name}.png')`).join(',\n'),
+            '};'
+        ].join('\n');
+
+        fs.writeFileSync(path.join(iosResourcesPath, 'index.js'), pngFilesJSIndex);
+
+        // Android
+        icons.forEach((icon) => {
+            const drawable = toDrawable(icon);
+            fs.writeFileSync(path.join(androidResourcesPath, `${snakeCase(icon.name)}.xml`), drawable)
+        });
+    })();
+}
+
+if (process.argv.includes('all') || process.argv.includes('docs')) {
+    (async () => {
+        const pngFiles = await toPngFiles(icons, 32);
         pngFiles.forEach(({ name, buffer }) => {
             fs.writeFileSync(path.join(__dirname, 'docs', `${name}.png`), buffer);
         });
