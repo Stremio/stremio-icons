@@ -12,7 +12,7 @@
         "type": "git",
         "url": "https://github.com/stremio/stremio-icons.git"
     },
-    "main": "dom",
+    "main": "react",
     "scripts": {
         "build": "node build.js"
     },

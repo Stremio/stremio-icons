@@ -107,7 +107,7 @@ const toDrawable = (icon) => {
     ].join('\n'));
 };
 
-if (process.argv.includes('all') || process.argv.includes('dom')) {
+if (process.argv.includes('all') || process.argv.includes('react')) {
     const styleAttribtutes = ['stroke-width', 'stroke-miterlimit', 'stroke-linejoin', 'stroke-linecap', 'fill'];
 
     const toReactStyle = (styles) => {
@@ -131,7 +131,7 @@ if (process.argv.includes('all') || process.argv.includes('dom')) {
         ]
     }));
 
-    fs.writeFileSync('dom/icons.json', JSON.stringify(JSONIcons));
+    fs.writeFileSync(path.join(__dirname, 'react', 'icons.json'), JSON.stringify(JSONIcons));
 }
 
 if (process.argv.includes('all') || process.argv.includes('react-native')) {
