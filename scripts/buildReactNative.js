@@ -13,8 +13,8 @@ const buildReactNative = (icons) => {
 
         // iOS
         const pngFiles = await toPngFiles(icons, 64);
-        pngFiles.forEach(({ name, buffer }) => {
-            fs.writeFileSync(path.join(iosResourcesPath, `${name}.png`), buffer);
+        pngFiles.forEach(({ filename, buffer }) => {
+            fs.writeFileSync(path.join(iosResourcesPath, filename), buffer);
         });
 
         const pngFilesJSIndex = [

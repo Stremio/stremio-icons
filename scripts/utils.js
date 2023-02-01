@@ -24,7 +24,7 @@ const toPngFiles = (icons, size) => {
         const svgBuffer = Buffer.from(toSVGFile(viewBox, paths));
         const pngBuffer = await sharp(svgBuffer).png().resize(size, size).toBuffer();
         return {
-            name,
+            filename: `${name}.png`,
             buffer: pngBuffer
         };
     }));

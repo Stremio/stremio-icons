@@ -14,8 +14,8 @@ const buildDocs = (icons) => {
         const docsPath = path.join(process.cwd(), 'docs');
     
         const pngFiles = await toPngFiles(icons, 32);
-        pngFiles.forEach(({ name, buffer }) => {
-            fs.writeFileSync(path.join(docsPath, `${name}.png`), buffer);
+        pngFiles.forEach(({ filename, buffer }) => {
+            fs.writeFileSync(path.join(docsPath, filename), buffer);
         });
     
         const indexFile = MARKDOWN_INDEX.concat(icons.map(({ name }) => `|![${name}](${name}.png)|${name}|`).join('\n'));
