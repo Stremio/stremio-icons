@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const { camelCase } = require('change-case');
+const { removeFiles } = require('./utils');
 
 const STYLE_ATTRIBUTES = [
     'stroke-width',
@@ -19,7 +20,10 @@ const toReactStyle = (styles) => {
 };
 
 const buildReact = (icons) => {
-    const JSONIcons = Object.fromEntries(icons.map(({ name, viewBox, paths }) => {
+    const jsonIconsPath = path.join(process.cwd(), 'react', 'icons.json');
+    removeFiles(jsonIconsPath);
+
+    const jsonIcons = Object.fromEntries(icons.map(({ name, viewBox, paths }) => {
         const reactPaths = paths.map(({ d, styles }) => ({
             d,
             style: toReactStyle(styles)
@@ -34,7 +38,7 @@ const buildReact = (icons) => {
         ]
     }));
 
-    fs.writeFileSync(path.join(process.cwd(), 'react', 'icons.json'), JSON.stringify(JSONIcons));
+    fs.writeFileSync(jsonIconsPath, JSON.stringify(jsonIcons));
 };
 
 module.exports = buildReact;

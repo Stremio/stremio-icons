@@ -1,5 +1,8 @@
+const fs = require('fs');
+const path = require('path');
 const { paramCase, camelCase, snakeCase } = require('change-case');
 const sharp = require('sharp');
+const glob = require('glob');
 
 const toPngFiles = (icons, size) => {
     const toInlineBlackStyle = (style) => {
@@ -88,7 +91,19 @@ const toDrawableFiles = (icons) => {
     });
 };
 
+const removeFiles = (cwd, pattern) => {
+    glob(pattern ? path.join(cwd, pattern) : cwd, (_err, files) => files.forEach((path) => fs.rmSync(path)));
+};
+
+const removeDir = (path) => {
+    try {
+        fs.rmSync(path, { recursive: true });
+    } catch(_e) {}
+};
+
 module.exports = {
     toPngFiles,
-    toDrawableFiles
+    toDrawableFiles,
+    removeFiles,
+    removeDir
 };

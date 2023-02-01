@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const { toPngFiles } = require('./utils');
+const { toPngFiles, removeFiles } = require('./utils');
 
 const MARKDOWN_INDEX = `---
 layout: default
@@ -12,6 +12,7 @@ title: Stremio Icons
 const buildDocs = (icons) => {
     (async () => {
         const docsPath = path.join(process.cwd(), 'docs');
+        removeFiles(docsPath, '*.?(png|md)');
     
         const pngFiles = await toPngFiles(icons, 32);
         pngFiles.forEach(({ filename, buffer }) => {

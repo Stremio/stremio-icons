@@ -1,12 +1,15 @@
 const fs = require('fs');
 const path = require('path');
-const { toPngFiles, toDrawableFiles } = require('./utils');
+const { toPngFiles, toDrawableFiles, removeDir } = require('./utils');
 
 const buildReactNative = (icons) => {
     (async () => {
         const reactNativePath = path.join(process.cwd(), 'react-native');
         const iosResourcesPath = path.join(reactNativePath, 'ios', 'png');
         const androidResourcesPath = path.join(reactNativePath, 'android', 'src', 'main', 'res', 'drawable');
+
+        removeDir(iosResourcesPath);
+        removeDir(androidResourcesPath);
 
         fs.mkdirSync(iosResourcesPath, { recursive: true });
         fs.mkdirSync(androidResourcesPath, { recursive: true });
