@@ -44,7 +44,7 @@ public class IconView extends AppCompatImageView {
         }
 
         try {
-            getDrawable().mutate().setColorFilter(mColor, PorterDuff.Mode.MULTIPLY);
+            getDrawable().setTint(mColor);
         } catch (final Exception e) {
         }
     }
