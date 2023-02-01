@@ -12,11 +12,11 @@ class Icon extends PureComponent {
     };
 
     render() {
-        const { style, name, color } = this.props;
+        const { style, name, size, color } = this.props;
 
         return (
             <RCTIcon
-                style={style}
+                style={[style, size ? { height: size, width: size } : {}]}
                 icon={snakeCase(name)}
                 color={this.toArgbHex(color)}
             />
@@ -27,10 +27,11 @@ class Icon extends PureComponent {
 Icon.propTypes = {
     ...View.propTypes,
     name: PropTypes.string.isRequired,
+    size: PropTypes.string,
     color: PropTypes.string.isRequired
 };
 Icon.defaultProps = {
-    color: '#ccffffff'
+    color: '#ccffffff',
 };
 
 const RCTIconInterface = {
