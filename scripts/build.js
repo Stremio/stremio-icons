@@ -5,6 +5,7 @@ const svgPath = require('svg-path');
 const { parseSVG } = require('svg-path-parser');
 const buildReact = require('./buildReact');
 const buildReactNative = require('./buildReactNative');
+const buildAndroid = require('./buildAndroid');
 const buildDocs = require('./buildDocs');
 
 const findSVGElement = (object, id) => {
@@ -76,6 +77,10 @@ if (process.argv.includes('all') || process.argv.includes('react')) {
 
 if (process.argv.includes('all') || process.argv.includes('react-native')) {
     buildReactNative(icons);
+}
+
+if (process.argv.includes('all') || process.argv.includes('android')) {
+    buildAndroid(icons);
 }
 
 if (process.argv.includes('all') || process.argv.includes('docs')) {
