@@ -17,6 +17,7 @@
     },
     "dependencies": {
         "change-case": "^4.1.2",
+        "colord": "^2.9.3",
         "prop-types": "^15.8.1"
     },
     "devDependencies": {
