@@ -4,13 +4,14 @@ import { View, requireNativeComponent } from 'react-native';
 import { snakeCase } from 'change-case';
 import { colord } from 'colord';
 
-class Icon extends PureComponent {
-    toArgbHex(color) {
-        const { a, r, g, b } = colord(color).rgba;
-        const toHex = (n) => parseInt(n).toString(16).toUpperCase();
-        return `#${toHex(a * 255)}${toHex(r)}${toHex(g)}${toHex(b)}`;
-    };
+const toHex = (n) => parseInt(n).toString(16).toUpperCase();
 
+const toArgbHex = (color) => {
+    const { a, r, g, b } = colord(color).rgba;
+    return `#${toHex(a * 255)}${toHex(r)}${toHex(g)}${toHex(b)}`;
+};
+
+class Icon extends PureComponent {
     render() {
         const { style, name, size, color } = this.props;
 
@@ -18,7 +19,7 @@ class Icon extends PureComponent {
             <RCTIcon
                 style={[style, size ? { height: size, width: size } : {}]}
                 icon={snakeCase(name)}
-                color={this.toArgbHex(color)}
+                color={toArgbHex(color)}
             />
         );
     }
