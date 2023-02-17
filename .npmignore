@@ -2,4 +2,6 @@
 /scripts
 /docs
 /android
+/solid/modules.d.ts
+/solid/tsconfig.json
 stremio-icons.svg

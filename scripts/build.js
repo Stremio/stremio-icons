@@ -3,6 +3,7 @@ const path = require('path');
 const { xml2js } = require('xml-js');
 const svgPath = require('svg-path');
 const { parseSVG } = require('svg-path-parser');
+const buildSolid = require('./buildSolid');
 const buildReact = require('./buildReact');
 const buildReactNative = require('./buildReactNative');
 const buildAndroid = require('./buildAndroid');
@@ -70,6 +71,10 @@ const icons = stremioIcons.elements.filter(({ name }) => name === 'g').map((icon
         paths,
     }
 });
+
+if (process.argv.includes('all') || process.argv.includes('solid')) {
+    buildSolid(icons);
+}
 
 if (process.argv.includes('all') || process.argv.includes('react')) {
     buildReact(icons);
