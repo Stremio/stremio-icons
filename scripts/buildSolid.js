@@ -2,9 +2,9 @@ const fs = require('fs');
 const path = require('path');
 const { removeFiles } = require('./utils');
 
-const buildSolid = (icons) => {
+const buildSolid = async (icons) => {
     const jsonIconsPath = path.join(process.cwd(), 'solid', 'src', 'icons.json');
-    removeFiles(jsonIconsPath);
+    await removeFiles(jsonIconsPath);
 
     const jsonIcons = Object.fromEntries(icons.map(({ name, viewBox, paths }) => {
         const solidPaths = paths.map(({ d, styles }) => ({

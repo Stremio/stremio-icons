@@ -92,7 +92,12 @@ const toDrawableFiles = (icons) => {
 };
 
 const removeFiles = (cwd, pattern) => {
-    glob(pattern ? path.join(cwd, pattern) : cwd, (_err, files) => files.forEach((path) => fs.rmSync(path)));
+    return new Promise((resolve, reject) => {
+        glob(pattern ? path.join(cwd, pattern) : cwd, (err, files) => {
+            if (err) return reject(err);
+            resolve(files.forEach((path) => fs.rmSync(path)));
+        });
+    });
 };
 
 const removeDir = (path) => {

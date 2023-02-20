@@ -19,9 +19,9 @@ const toReactStyle = (styles) => {
         .map(([key, value]) => [camelCase(key), value]));
 };
 
-const buildReact = (icons) => {
+const buildReact = async (icons) => {
     const jsonIconsPath = path.join(process.cwd(), 'react', 'icons.json');
-    removeFiles(jsonIconsPath);
+    await removeFiles(jsonIconsPath);
 
     const jsonIcons = Object.fromEntries(icons.map(({ name, viewBox, paths }) => {
         const reactPaths = paths.map(({ d, styles }) => ({
