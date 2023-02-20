@@ -3,7 +3,7 @@ const path = require('path');
 const { removeFiles } = require('./utils');
 
 const buildSolid = (icons) => {
-    const jsonIconsPath = path.join(process.cwd(), 'solid', 'icons.json');
+    const jsonIconsPath = path.join(process.cwd(), 'solid', 'src', 'icons.json');
     removeFiles(jsonIconsPath);
 
     const jsonIcons = Object.fromEntries(icons.map(({ name, viewBox, paths }) => {

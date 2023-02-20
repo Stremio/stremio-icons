@@ -9,13 +9,15 @@ type JSONIcon = {
     }[]
 };
 
+const ICONS = icons as Record<string, JSONIcon>
+
 type Props = {
     class?: string,
     name: string,
 };
 
 const Icon = (props: Props) => {
-    const icon: JSONIcon = icons[props.name];
+    const icon = ICONS[props.name];
 
     if (!icon) {
         return null;
