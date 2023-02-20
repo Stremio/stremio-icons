@@ -17,6 +17,9 @@
     "tsup-preset-solid": "^0.1.8",
     "typescript": "^4.9.5"
   },
+  "peerDependencies": {
+    "solid-js": "^1.6.11"
+  },
   "exports": {
     "development": {
       "import": {
