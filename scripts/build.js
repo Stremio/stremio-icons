@@ -50,7 +50,11 @@ const icons = stremioIcons.elements.filter(({ name }) => name === 'g').map((icon
     const paths = iconInner.elements.map(({ attributes }) => {
         const ignoreAttributes = ['id', 'd'];
         const styles = Object.fromEntries(Object.entries(attributes).filter(([key]) => !ignoreAttributes.includes(key)));
-        if (Object.keys(styles).some((key) => key === 'stroke-width')) {
+        if (styles['fill']) {
+            styles['fill'] = 'currentcolor';
+        }
+        if (styles['stroke']) {
+            styles['stroke'] = 'currentcolor';
             styles['fill'] = 'none';
         }
 
