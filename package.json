@@ -26,10 +26,5 @@
         "svg-path-parser": "^1.1.0",
         "svgo": "^3.0.2",
         "xml-js": "^1.6.11"
-    },
-    "peerDependencies": {
-        "change-case": "^4.1.2",
-        "colord": "^2.9.3",
-        "prop-types": "^15.8.1"
     }
 }
