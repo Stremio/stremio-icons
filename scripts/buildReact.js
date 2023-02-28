@@ -20,7 +20,7 @@ const toReactStyle = (styles) => {
 };
 
 const buildReact = async (icons) => {
-    const jsonIconsPath = path.join(process.cwd(), 'react', 'icons.json');
+    const jsonIconsPath = path.join(process.cwd(), 'react', 'src', 'icons.json');
     await removeFiles(jsonIconsPath);
 
     const jsonIcons = Object.fromEntries(icons.map(({ name, viewBox, paths }) => {
