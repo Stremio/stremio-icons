@@ -19,6 +19,8 @@ jobs:
       run: npm install
     - name: Build
       run: npm run build -- all
+    - name: Build react package
+      run: npm run build-react
     - name: Build solid package
       run: npm run build-solid
     - name: Publish to NPM
