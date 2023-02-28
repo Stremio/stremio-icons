@@ -13,10 +13,12 @@
         "url": "https://github.com/stremio/stremio-icons.git"
     },
     "workspaces": [
+        "react",
         "solid"
     ],
     "scripts": {
         "build": "node scripts/build.js",
+        "build-react": "npm run build -w react",
         "build-solid": "npm run build -w solid"
     },
     "devDependencies": {
