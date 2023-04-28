@@ -1,8 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 const { xml2js } = require('xml-js');
-const svgPath = require('svg-path');
-const { parseSVG } = require('svg-path-parser');
+const parseSVGPath = require('parse-svg-path');
+const svgpath = require('svgpath');
 const { optimize } = require('svgo');
 const { toSVGFile } = require('./utils');
 const buildSolid = require('./buildSolid');
@@ -38,18 +38,26 @@ const icons = stremioIcons.elements.filter(({ name }) => name === 'g').map((icon
     const iconOuter = icon.elements.find(({ name }) => name === 'path');
     const iconInner = icon.elements.find(({ name }) => name === 'g');
 
-    const pathCommands = parseSVG(iconOuter.attributes.d);
-    const moveToCommand = pathCommands[0];
+    const [[, x, y]] = parseSVGPath(iconOuter.attributes.d);
     const iconOuterOffset = {
-        x: -(moveToCommand.x - ICON_SIZE),
-        y: -moveToCommand.y,
+        x: -(x - ICON_SIZE),
+        y: -y,
     };
 
     const viewBox = `0 0 ${ICON_SIZE} ${ICON_SIZE}`;
 
     const paths = iconInner.elements.map(({ attributes }) => {
-        const ignoreAttributes = ['id', 'd'];
+        const ignoreAttributes = ['id', 'data-name', 'd', 'transform'];
         const styles = Object.fromEntries(Object.entries(attributes).filter(([key]) => !ignoreAttributes.includes(key)));
+        if (styles['style']) {
+            const inlineStyle = styles['style'];
+            styles.concat(Object.fromEntries(
+                inlineStyle
+                    .split(';')
+                    .filter((s) => s)
+                    .map((s) => s.split(':'))
+            ));
+        }
         if (styles['fill']) {
             styles['fill'] = 'currentcolor';
         }
@@ -58,9 +66,9 @@ const icons = stremioIcons.elements.filter(({ name }) => name === 'g').map((icon
             styles['fill'] = 'none';
         }
 
-        const path = svgPath(attributes.d);
-        path.translate(iconOuterOffset.x, iconOuterOffset.y);
-        const d = path.toString();
+        const d = svgpath(attributes.d)
+            .translate(iconOuterOffset.x, iconOuterOffset.y)
+            .toString();
 
         return {
             d,
