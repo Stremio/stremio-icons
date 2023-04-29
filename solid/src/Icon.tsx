@@ -1,4 +1,4 @@
-import { For, JSX } from 'solid-js';
+import { For, JSX, Show } from 'solid-js';
 import icons from './icons.json';
 
 type JSONIcon = {
@@ -17,18 +17,16 @@ type Props = {
 };
 
 const Icon = (props: Props) => {
-    const icon = ICONS[props.name];
-
-    if (!icon) {
-        return null;
-    }
+    const icon = () => ICONS[props.name] ?? null;
 
     return (
-        <svg class={props.class} viewBox={icon.viewBox}>
-            <For each={icon.paths}>{(path) =>
-                <path d={path.d} style={path.style}></path>
-            }</For>
-        </svg>
+        <Show when={icon()}>
+            <svg class={props.class} viewBox={icon()?.viewBox}>
+                <For each={icon()?.paths}>{(path) =>
+                    <path d={path.d} style={path.style}></path>
+                }</For>
+            </svg>
+        </Show>
     );
 };
 
