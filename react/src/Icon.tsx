@@ -16,14 +16,10 @@ type Props = {
     name: string,
 };
 
-const Icon = React.forwardRef((props: Props, ref: ForwardedRef<SVGSVGElement>) => {
+const Icon = React.memo(React.forwardRef((props: Props, ref: ForwardedRef<SVGSVGElement>) => {
     const icon = ICONS[props.name];
 
-    if (!icon) {
-        return null;
-    }
-
-    return (
+    return icon ?
         <svg ref={ref} className={props.className} viewBox={icon.viewBox}>
             {
                 icon.paths.map((path, index) => (
@@ -31,7 +27,8 @@ const Icon = React.forwardRef((props: Props, ref: ForwardedRef<SVGSVGElement>) =
                 ))
             }
         </svg>
-    );
-});
+        :
+        null;
+}));
 
 export default Icon;
