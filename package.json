@@ -14,12 +14,14 @@
     },
     "workspaces": [
         "react",
-        "solid"
+        "solid",
+        "angularjs"
     ],
     "scripts": {
         "build": "node scripts/build.js",
         "build-react": "npm run build -w react",
-        "build-solid": "npm run build -w solid"
+        "build-solid": "npm run build -w solid",
+        "build-angularjs": "npm run build -w angularjs"
     },
     "devDependencies": {
         "glob": "^8.1.0",

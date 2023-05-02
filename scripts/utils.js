@@ -4,13 +4,13 @@ const { paramCase, camelCase, snakeCase } = require('change-case');
 const sharp = require('sharp');
 const glob = require('glob');
 
-const toSVGFile = (viewBox, paths) => {
-    const toInlineStyle = (style) => {
-        return Object.entries(style)
-            .map(([key, value]) => `${paramCase(key)}:${value}`)
-            .join(';');
-    };
+const toInlineStyle = (styles) => {
+    return Object.entries(styles)
+        .map(([key, value]) => `${paramCase(key)}:${value}`)
+        .join(';');
+};
 
+const toSVGFile = (viewBox, paths) => {
     const svgPaths = paths
         .map(({ d, styles }) => `<path d="${d}" style="${toInlineStyle(styles)}" />`)
         .join('');
@@ -29,7 +29,7 @@ const toPngFiles = (icons, size) => {
 };
 
 const toDrawableFiles = (icons) => {
-    const toDrawableStyle = (styles = {}) => {
+    const toDrawableAttributes = (styles = {}) => {
         const ignoreProperties = ['fill', 'clip-rule'];
         const renameProperties = {
             'stroke-linejoin': 'stroke-line-join',
@@ -41,29 +41,29 @@ const toDrawableFiles = (icons) => {
             'evenodd': 'evenOdd',
         };
 
-        const style = Object.entries(styles)
+        const attributes = Object.entries(styles)
             .filter((([key]) => !ignoreProperties.includes(key)))
             .map((([key, value]) => [renameProperties[key] ?? key, value]))
             .map((([key, value]) => [key, renameValues[value] ?? value]))
             .map((([key, value]) => [camelCase(key), value]));
 
-        if (style.find(([key]) => key.startsWith('stroke'))) {
-            style.push([['strokeColor'], ['#FFFFFFFF']]);
+        if (attributes.find(([key]) => key.startsWith('stroke'))) {
+            attributes.push([['strokeColor'], ['#FFFFFFFF']]);
         } else {
-            style.push([['fillColor'], ['#FFFFFFFF']]);
+            attributes.push([['fillColor'], ['#FFFFFFFF']]);
         }
             
-        return style.map(([key, value]) => `android:${key}="${value}"`);
+        return attributes.map(([key, value]) => `android:${key}="${value}"`);
     };
 
     return icons.map((icon) => {
         const paths = icon.paths.map(({ d, styles }) => {
-            const style = toDrawableStyle(styles)
+            const attributes = toDrawableAttributes(styles)
                 .map((value) => `\t\t${value}`)
                 .join('\n');
             return [
                 '\t<path',
-                style,
+                attributes,
                 `\t\tandroid:pathData="${d}" />`
             ].join('\n')
         }).join('\n');
@@ -86,6 +86,23 @@ const toDrawableFiles = (icons) => {
     });
 };
 
+const toJSONFile = (icons, transform) => {
+    return Object.fromEntries(icons.map(({ name, viewBox, paths }) => {
+        const transformedPaths = paths.map(({ d, styles }) => ({
+            d,
+            style: transform ? transform(styles) : styles,
+        }));
+
+        return [
+            name,
+            {
+                viewBox,
+                paths: transformedPaths,
+            }
+        ]
+    }));
+};
+
 const removeFiles = (cwd, pattern) => {
     return new Promise((resolve, reject) => {
         glob(pattern ? path.join(cwd, pattern) : cwd, (err, files) => {
@@ -102,9 +119,11 @@ const removeDir = (path) => {
 };
 
 module.exports = {
+    toInlineStyle,
     toSVGFile,
     toPngFiles,
     toDrawableFiles,
+    toJSONFile,
     removeFiles,
     removeDir
 };

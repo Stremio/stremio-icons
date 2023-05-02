@@ -10,6 +10,7 @@ const buildReact = require('./buildReact');
 const buildReactNative = require('./buildReactNative');
 const buildAndroid = require('./buildAndroid');
 const buildDocs = require('./buildDocs');
+const buildAngularJS = require('./buildAngularJS');
 
 const findSVGElement = (object, options) => {
     if ((options.id && object?.attributes?.id === options.id) || (options.name && object?.name === options.name)) {
@@ -116,4 +117,8 @@ if (process.argv.includes('all') || process.argv.includes('android')) {
 
 if (process.argv.includes('all') || process.argv.includes('docs')) {
     buildDocs(icons);
+}
+
+if (process.argv.includes('all') || process.argv.includes('json')) {
+    buildAngularJS(icons);
 }
