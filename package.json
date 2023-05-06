@@ -19,12 +19,14 @@
     ],
     "scripts": {
         "build": "node scripts/build.js",
-        "build-react": "npm run build -w react",
-        "build-solid": "npm run build -w solid",
-        "build-angularjs": "npm run build -w angularjs"
+        "build:react": "npm run build -w react",
+        "build:solid": "npm run build -w solid",
+        "build:angularjs": "npm run build -w angularjs",
+        "build:all": "run-s \"build -- all\" build:react build:solid build:angularjs "
     },
     "devDependencies": {
         "glob": "^8.1.0",
+        "npm-run-all": "^4.1.5",
         "parse-svg-path": "^0.1.2",
         "sharp": "^0.31.3",
         "svgo": "^3.0.2",
