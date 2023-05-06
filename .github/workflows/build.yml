@@ -11,10 +11,4 @@ jobs:
     - name: Install NPM Dependencies
       run: npm install
     - name: Build
-      run: npm run build -- all
-    - name: Build react package
-      run: npm run build-react
-    - name: Build solid package
-      run: npm run build-solid
-    - name: Build angularjs package
-      run: npm run build-angularjs
+      run: npm run build:all
