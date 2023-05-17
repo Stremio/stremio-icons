@@ -28,9 +28,23 @@ const findSVGElement = (object, options) => {
     return null;
 }
 
-const svgIcons = fs.readFileSync(path.join(process.cwd(), 'stremio-icons.svg'));
-const parsedSVG = xml2js(svgIcons);
+const SVGBuffer = fs.readFileSync(path.join(process.cwd(), 'stremio-icons.svg'));
+const { data: optimizedSVG } = optimize(SVGBuffer, {
+    plugins: [
+        {
+            name: 'preset-default',
+            params: {
+                overrides: {
+                    cleanupIds: false,
+                    moveElemsAttrsToGroup: false,
+                    moveGroupAttrsToElems: false,
+                },
+            },
+        },
+    ],
+});
 
+const parsedSVG = xml2js(optimizedSVG);
 const stremioIcons = findSVGElement(parsedSVG, { id: 'stremio-icons' });
 
 const ICON_SIZE = 512;
@@ -38,6 +52,8 @@ const ICON_SIZE = 512;
 const icons = stremioIcons.elements.filter(({ name }) => name === 'g').map((icon) => {
     const iconOuter = icon.elements.find(({ name }) => name === 'path');
     const iconInner = icon.elements.find(({ name }) => name === 'g');
+
+    const iconInnerTransform = iconInner.attributes['transform'] || '';
 
     const [[, x, y]] = parseSVGPath(iconOuter.attributes.d);
     const iconOuterOffset = {
@@ -50,15 +66,6 @@ const icons = stremioIcons.elements.filter(({ name }) => name === 'g').map((icon
     const paths = iconInner.elements.map(({ attributes }) => {
         const ignoreAttributes = ['id', 'data-name', 'd', 'transform'];
         const styles = Object.fromEntries(Object.entries(attributes).filter(([key]) => !ignoreAttributes.includes(key)));
-        if (styles['style']) {
-            const inlineStyle = styles['style'];
-            styles.concat(Object.fromEntries(
-                inlineStyle
-                    .split(';')
-                    .filter((s) => s)
-                    .map((s) => s.split(':'))
-            ));
-        }
         if (styles['fill']) {
             styles['fill'] = 'currentcolor';
         }
@@ -67,7 +74,11 @@ const icons = stremioIcons.elements.filter(({ name }) => name === 'g').map((icon
             styles['fill'] = 'none';
         }
 
+        const iconTransform = attributes['transform'] || '';
+
         const d = svgpath(attributes.d)
+            .transform(iconInnerTransform)
+            .transform(iconTransform)
             .translate(iconOuterOffset.x, iconOuterOffset.y)
             .toString();
 
