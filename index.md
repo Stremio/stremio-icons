@@ -5,6 +5,7 @@ title: Stremio Icons
 
 |preview|name|
 |:---:|:---:|
+|![ic_pop_out](ic_pop_out.png)|ic_pop_out|
 |![ic_speedometer](ic_speedometer.png)|ic_speedometer|
 |![ic_ghost](ic_ghost.png)|ic_ghost|
 |![ic_hourglass_tilted](ic_hourglass_tilted.png)|ic_hourglass_tilted|
