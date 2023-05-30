@@ -4,7 +4,6 @@ const { xml2js } = require('xml-js');
 const parseSVGPath = require('parse-svg-path');
 const svgpath = require('svgpath');
 const { optimize } = require('svgo');
-const { toSVGFile } = require('./utils');
 const buildSolid = require('./buildSolid');
 const buildReact = require('./buildReact');
 const buildReactNative = require('./buildReactNative');
@@ -88,25 +87,12 @@ const icons = stremioIcons.elements.filter(({ name }) => name === 'g').map((icon
         };
     });
 
-    const svg = toSVGFile(viewBox, paths);
-    const { data } = optimize(svg);
-    const parsedSVG = xml2js(data);
-    const root = findSVGElement(parsedSVG, { name: 'svg' });
-    const optimizedPaths = root.elements.map(({ attributes }) => {
-        const { d, style } = attributes;
-        const styles = style ? Object.fromEntries(style.split(';').map((s) => s.split(':'))) : {};
-        return {
-            d,
-            styles
-        };
-    });
-
     return {
         name: icon.attributes.id,
         width: ICON_SIZE,
         height: ICON_SIZE,
         viewBox,
-        paths: optimizedPaths,
+        paths,
     }
 });
 
