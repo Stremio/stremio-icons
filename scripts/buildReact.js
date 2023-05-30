@@ -4,6 +4,7 @@ const { camelCase } = require('change-case');
 const { removeFiles, toJSONFile } = require('./utils');
 
 const STYLE_ATTRIBUTES = [
+    'stroke',
     'stroke-width',
     'stroke-miterlimit',
     'stroke-linejoin',
