@@ -3,11 +3,14 @@ import { defineConfig } from 'tsup-preset-solid';
 export default defineConfig(
     {
         entry: 'src/index.ts',
-        devEntry: true,
     },
     {
         writePackageJson: true,
         dropConsole: true,
         cjs: true,
+        tsupOptions: (config) => ({
+            ...config,
+            target: 'es5',
+        }),
     },
 );
