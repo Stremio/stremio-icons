@@ -9,7 +9,7 @@ const buildKMM = async (icons) => {
 
     const svgFiles = await toSVGFiles(icons);
     svgFiles.forEach(({ filename, buffer }) => {
-        fs.writeFileSync(path.join(kmmSVGPath, filename.replaceAll('-', '_')), buffer)
+        fs.writeFileSync(path.join(kmmSVGPath, filename.replace(/-/g, '_')), buffer)
     });
 };
 
