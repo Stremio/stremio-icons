@@ -17,6 +17,16 @@ const toSVGFile = (viewBox, paths) => {
     return `<svg viewBox="${viewBox}">${svgPaths}</svg>`;
 };
 
+const toSVGFiles = (icons) => {
+    return Promise.all(icons.map(async ({ name, viewBox, paths }) => {
+        const svgBuffer = Buffer.from(toSVGFile(viewBox, paths));
+        return {
+            filename: `${name}.svg`,
+            buffer: svgBuffer
+        };
+    }));
+};
+
 const toPngFiles = (icons, size) => {
     return Promise.all(icons.map(async ({ name, viewBox, paths }) => {
         const svgBuffer = Buffer.from(toSVGFile(viewBox, paths));
@@ -121,6 +131,7 @@ const removeDir = (path) => {
 module.exports = {
     toInlineStyle,
     toSVGFile,
+    toSVGFiles,
     toPngFiles,
     toDrawableFiles,
     toJSONFile,

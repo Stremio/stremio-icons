@@ -8,6 +8,7 @@ const buildSolid = require('./buildSolid');
 const buildReact = require('./buildReact');
 const buildReactNative = require('./buildReactNative');
 const buildAndroid = require('./buildAndroid');
+const buildKMM = require('./buildKMM');
 const buildDocs = require('./buildDocs');
 const buildAngularJS = require('./buildAngularJS');
 
@@ -110,6 +111,10 @@ if (process.argv.includes('all') || process.argv.includes('react-native')) {
 
 if (process.argv.includes('all') || process.argv.includes('android')) {
     buildAndroid(icons);
+}
+
+if (process.argv.includes('all') || process.argv.includes('kmm')) {
+    buildKMM(icons);
 }
 
 if (process.argv.includes('all') || process.argv.includes('docs')) {
