@@ -1,10 +1,21 @@
 group = "com.github.Stremio"
 version = "5.0.0"
 
+buildscript {
+    repositories {
+        gradlePluginPortal()
+    }
+
+    dependencies {
+        classpath("dev.icerock.moko:resources-generator:0.23.0")
+    }
+}
+
 plugins {
     kotlin("multiplatform")
     id("maven-publish")
     id("com.android.library")
+    id("dev.icerock.mobile.multiplatform-resources").version("0.23.0")
 }
 
 repositories {
@@ -19,7 +30,11 @@ kotlin {
 
     @Suppress("UNUSED_VARIABLE")
     sourceSets {
-        val commonMain by getting
+        val commonMain by getting {
+            dependencies {
+                api("dev.icerock.moko:resources:0.23.0")
+            }
+        }
         val androidMain by getting
     }
 }
@@ -35,4 +50,8 @@ android {
             manifest.srcFile("src/androidMain/AndroidManifest.xml")
         }
     }
+}
+
+multiplatformResources {
+    multiplatformResourcesPackage = "com.stremio.icons"
 }
