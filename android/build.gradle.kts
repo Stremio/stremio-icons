@@ -15,7 +15,7 @@ plugins {
     kotlin("multiplatform")
     id("maven-publish")
     id("com.android.library")
-    id("dev.icerock.mobile.multiplatform-resources").version("0.23.0")
+    id("dev.icerock.mobile.multiplatform-resources")
 }
 
 repositories {
@@ -32,7 +32,7 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                api("dev.icerock.moko:resources:0.23.0")
+                api("dev.icerock.moko:resources:${extra["moko.version"] as String}")
             }
         }
         val androidMain by getting
