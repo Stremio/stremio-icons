@@ -40,7 +40,7 @@ const toPngFiles = (icons, size) => {
 
 const toDrawableFiles = (icons) => {
     const toDrawableAttributes = (styles = {}) => {
-        const ignoreProperties = ['fill', 'clip-rule'];
+        const ignoreProperties = ['fill', 'stroke', 'clip-rule'];
         const renameProperties = {
             'stroke-linejoin': 'stroke-line-join',
             'stroke-linecap': 'stroke-line-cap',
