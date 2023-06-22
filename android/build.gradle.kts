@@ -53,5 +53,5 @@ android {
 }
 
 multiplatformResources {
-    multiplatformResourcesPackage = "com.stremio.icons"
+    multiplatformResourcesPackage = "com.stremio.icon"
 }
