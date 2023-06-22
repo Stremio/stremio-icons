@@ -1,5 +1,5 @@
 env:
-  NODE_VERSION: "12.22.1"
+  NODE_VERSION: "14.15.0"
   NODE_SHA256: "d315c5dea4d96658164cdb257bd8dbb5e44bdd2a7c1d747841f06515f23a0042"
   GRADLE_SHA256: "23e7d37e9bb4f8dabb8a3ea7fdee9dd0428b9b1a71d298aefd65b11dccea220f"
 before_install:
