@@ -23,7 +23,6 @@ const buildIOS = async (cwd, icons) => {
 
 const buildAndroid = async (cwd, icons) => {
     const androidResourcesPath = path.join(cwd, 'android', 'src', 'main', 'res', 'drawable');
-    removeDir(androidResourcesPath);
     fs.mkdirSync(androidResourcesPath, { recursive: true });
     
     const drawableFiles = await toDrawableFiles(icons);

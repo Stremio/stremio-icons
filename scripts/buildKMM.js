@@ -3,7 +3,7 @@ const path = require('path');
 const { toSVGFiles, removeDir } = require('./utils');
 
 const buildKMM = async (icons) => {
-    const kmmSVGPath = path.join(process.cwd(), 'kmm');
+    const kmmSVGPath = path.join(process.cwd(), 'android', 'src', 'commonMain', 'res', 'drawable');
     removeDir(kmmSVGPath);
     fs.mkdirSync(kmmSVGPath, { recursive: true });
 

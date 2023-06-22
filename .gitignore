@@ -2,6 +2,9 @@
 package-lock.json
 /node_modules
 /docs
-/android/src/main/res/drawable
+/android/src/**/res/drawable
 /react-native/android/src/main/res/drawable
+.gradle/
 /react-native/ios/png
+.idea/
+local.properties
