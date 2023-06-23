@@ -18,13 +18,13 @@ const toSVGFile = (viewBox, paths) => {
 };
 
 const toSVGFiles = (icons) => {
-    return Promise.all(icons.map(async ({ name, viewBox, paths }) => {
+    return icons.map(({ name, viewBox, paths }) => {
         const svgBuffer = Buffer.from(toSVGFile(viewBox, paths));
         return {
             filename: `${name}.svg`,
             buffer: svgBuffer
         };
-    }));
+    });
 };
 
 const toPngFiles = (icons, size) => {
