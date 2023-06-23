@@ -3,7 +3,7 @@ const path = require('path');
 const { toDrawableFiles, removeDir } = require('./utils');
 
 const buildAndroid = (icons) => {
-    const androidDrawablePath = path.join(process.cwd(), 'android', 'src', 'main', 'res', 'drawable');
+    const androidDrawablePath = path.join(process.cwd(), 'android', 'src', 'androidMain', 'res', 'drawable');
     removeDir(androidDrawablePath);
     fs.mkdirSync(androidDrawablePath, { recursive: true });
 
