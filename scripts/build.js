@@ -49,6 +49,8 @@ const stremioIcons = findSVGElement(parsedSVG, { id: 'stremio-icons' });
 const ICON_SIZE = 512;
 
 const icons = stremioIcons.elements.filter(({ name }) => name === 'g').map((icon) => {
+    console.log(icon.attributes.id);
+
     const iconOuter = icon.elements.find(({ name }) => name === 'path');
     const iconInner = icon.elements.find(({ name }) => name === 'g');
 
