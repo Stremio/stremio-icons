@@ -1,3 +1,3 @@
-package com.stremio.icon
+package com.stremio.icons
 
 val StremioIcons = MR.images

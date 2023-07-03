@@ -1,4 +1,4 @@
-package com.stremio.icon;
+package com.stremio.icons;
 
 import android.content.Context;
 import android.content.res.Resources;
