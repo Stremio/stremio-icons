@@ -19,7 +19,7 @@ class Icon extends PureComponent {
             <RCTIcon
                 style={[style, size ? { height: size, width: size } : {}]}
                 icon={snakeCase(name)}
-                color={toArgbHex(color)}
+                color={style && style.color ? toArgbHex(style.color) : color ? toArgbHex(color) : null}
             />
         );
     }
