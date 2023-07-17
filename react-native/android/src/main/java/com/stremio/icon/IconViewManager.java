@@ -1,4 +1,4 @@
-package com.stremio.icon;
+package com.stremio.icons;
 
 import com.facebook.react.common.MapBuilder;
 import com.facebook.react.uimanager.SimpleViewManager;

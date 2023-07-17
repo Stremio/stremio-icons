@@ -1,6 +1,6 @@
 {
     "name": "@stremio/stremio-icons",
-    "version": "4.0.1",
+    "version": "5.0.0-beta.3",
     "description": "Icon set for all Stremio clients",
     "author": {
         "name": "Smart Code Ltd.",
@@ -12,11 +12,27 @@
         "type": "git",
         "url": "https://github.com/stremio/stremio-icons.git"
     },
+    "workspaces": [
+        "react",
+        "react-native",
+        "solid",
+        "angularjs"
+    ],
     "scripts": {
-        "build": "node build.js"
+        "build": "node scripts/build.js",
+        "build:react": "npm run build -w react",
+        "build:solid": "npm run build -w solid",
+        "build:angularjs": "npm run build -w angularjs",
+        "build:all": "run-s \"build -- all\" build:react build:solid build:angularjs "
     },
     "devDependencies": {
-        "mkdirp": "1.0.4",
-        "rimraf": "3.0.2"
+        "change-case": "^4.1.2",
+        "glob": "^8.1.0",
+        "npm-run-all": "^4.1.5",
+        "parse-svg-path": "^0.1.2",
+        "sharp": "^0.31.3",
+        "svgo": "^3.0.2",
+        "svgpath": "^2.6.0",
+        "xml-js": "^1.6.11"
     }
 }
