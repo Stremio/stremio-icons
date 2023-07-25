@@ -46,6 +46,8 @@ title: Stremio Icons
 |![channels-outline](channels-outline.png)|channels-outline|
 |![channels](channels.png)|channels|
 |![actors](actors.png)|actors|
+|![anime-outline](anime-outline.png)|anime-outline|
+|![anime](anime.png)|anime|
 |![tv-outline](tv-outline.png)|tv-outline|
 |![tv](tv.png)|tv|
 |![calendar-thin](calendar-thin.png)|calendar-thin|
