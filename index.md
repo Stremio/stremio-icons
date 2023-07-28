@@ -63,6 +63,7 @@ title: Stremio Icons
 |![movies](movies.png)|movies|
 |![cloud-library](cloud-library.png)|cloud-library|
 |![chevron-back](chevron-back.png)|chevron-back|
+|![sort-up-down](sort-up-down.png)|sort-up-down|
 |![caret-down](caret-down.png)|caret-down|
 |![caret-up](caret-up.png)|caret-up|
 |![chevron-forward](chevron-forward.png)|chevron-forward|
