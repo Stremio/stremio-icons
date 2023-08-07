@@ -39,7 +39,7 @@ const RCTIconInterface = {
     name: 'Icon',
     propTypes: {
         ...View.propTypes,
-        icon: PropTypes.number.isRequired,
+        icon: PropTypes.string.isRequired,
         color: PropTypes.string.isRequired
     }
 };
