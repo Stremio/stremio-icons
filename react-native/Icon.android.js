@@ -28,7 +28,7 @@ class Icon extends PureComponent {
 Icon.propTypes = {
     ...View.propTypes,
     name: PropTypes.string.isRequired,
-    size: PropTypes.string,
+    size: PropTypes.number,
     color: PropTypes.string.isRequired
 };
 Icon.defaultProps = {
