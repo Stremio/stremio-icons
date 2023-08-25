@@ -102,7 +102,7 @@ title: Stremio Icons
 |![volume-high](volume-high.png)|volume-high|
 |![volume-mute](volume-mute.png)|volume-mute|
 |![subtitles](subtitles.png)|subtitles|
-|![dub-audio](dub-audio.png)|dub-audio|
+|![audio-tracks](audio-tracks.png)|audio-tracks|
 |![chapters](chapters.png)|chapters|
 |![skip-15-forward](skip-15-forward.png)|skip-15-forward|
 |![skip-15-back](skip-15-back.png)|skip-15-back|
