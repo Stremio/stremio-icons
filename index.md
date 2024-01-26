@@ -7,6 +7,7 @@ title: Stremio Icons
 |![symbol](symbol.png)|symbol|
 |![imdb-outline](imdb-outline.png)|imdb-outline|
 |![imdb](imdb.png)|imdb|
+|![x](x.png)|x|
 |![facebook](facebook.png)|facebook|
 |![youtube](youtube.png)|youtube|
 |![vlc](vlc.png)|vlc|
