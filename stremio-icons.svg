@@ -887,5 +887,18 @@
 <path id="Vector_98" d="M7244.9 233.4L7230.3 381.8C7230.29 391.293 7226.52 400.396 7219.81 407.109C7213.1 413.822 7203.99 417.595 7194.5 417.6H6893.5C6884.01 417.595 6874.9 413.822 6868.19 407.109C6861.48 400.396 6857.7 391.293 6857.7 381.8L6843.1 233.4C6842.51 225.818 6844.94 218.311 6849.87 212.52C6854.8 206.729 6861.82 203.126 6869.4 202.5C6870.2 202.5 6870.9 202.3 6871.7 202.3H7216.3C7223.91 202.33 7231.2 205.38 7236.56 210.78C7241.92 216.181 7244.92 223.489 7244.9 231.1V233.4Z" stroke="white" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/>
 </g>
 </g>
+<g id="drag-handle">
+<path id="outer_21_8" d="M12307.5,5168.6h-512v512h512Z" fill="#191919"/>
+<g id="Group_2330">
+<circle id="Ellipse_121" data-name="Ellipse 121" cx="52" cy="52" r="52" transform="translate(11913.5 5203)" fill="#fffefe"/>
+<circle id="Ellipse_124" data-name="Ellipse 124" cx="52" cy="52" r="52" transform="translate(11913.5 5376)" fill="#fffefe"/>
+<ellipse id="Ellipse_126" data-name="Ellipse 126" cx="52" cy="53" rx="52" ry="53" transform="translate(11913.5 5553)" fill="#fffefe"/>
+<circle id="Ellipse_122" data-name="Ellipse 122" cx="52" cy="52" r="52" transform="translate(12086.5 5203)" fill="#fffefe"/>
+<circle id="Ellipse_123" data-name="Ellipse 123" cx="52" cy="52" r="52" transform="translate(12086.5 5376)" fill="#fffefe"/>
+<ellipse id="Ellipse_125" data-name="Ellipse 125" cx="52" cy="53" rx="52" ry="53" transform="translate(12086.5 5553)" fill="#fffefe"/>
+</g>
 </g>
 </svg>
+</g>
+</svg>
+
