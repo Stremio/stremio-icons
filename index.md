@@ -120,3 +120,4 @@ title: Stremio Icons
 |![eye-off](eye-off.png)|eye-off|
 |![local-import](local-import.png)|local-import|
 |![drag-handle](drag-handle.png)|drag-handle|
+|![bin](bin.png)|bin|
