@@ -121,3 +121,4 @@ title: Stremio Icons
 |![drag-handle](drag-handle.png)|drag-handle|
 |![bin](bin.png)|bin|
 |![episodes](episodes.png)|episodes|
+|![dot-arrow](dot-arrow.png)|dot-arrow|
