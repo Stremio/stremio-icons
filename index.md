@@ -109,8 +109,10 @@ title: Stremio Icons
 |![skip-15-forward](skip-15-forward.png)|skip-15-forward|
 |![skip-15-back](skip-15-back.png)|skip-15-back|
 |![reset](reset.png)|reset|
+|![rotate](rotate.png)|rotate|
 |![audio](audio.png)|audio|
 |![speed](speed.png)|speed|
+|![episodes](episodes.png)|episodes|
 |![cast](cast.png)|cast|
 |![cast-connected](cast-connected.png)|cast-connected|
 |![add](add.png)|add|
@@ -119,6 +121,3 @@ title: Stremio Icons
 |![eye-off](eye-off.png)|eye-off|
 |![local-import](local-import.png)|local-import|
 |![drag-handle](drag-handle.png)|drag-handle|
-|![bin](bin.png)|bin|
-|![episodes](episodes.png)|episodes|
-|![dot-arrow](dot-arrow.png)|dot-arrow|
