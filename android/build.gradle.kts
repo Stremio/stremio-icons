@@ -1,5 +1,5 @@
 group = "com.github.Stremio"
-version = "5.5.0"
+version = "5.6.0"
 
 buildscript {
     repositories {
