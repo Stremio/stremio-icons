@@ -74,6 +74,10 @@ title: Stremio Icons
 |![more-vertical](more-vertical.png)|more-vertical|
 |![more-horizontal](more-horizontal.png)|more-horizontal|
 |![open-in-browser](open-in-browser.png)|open-in-browser|
+|![thumbs-up-outline](thumbs-up-outline.png)|thumbs-up-outline|
+|![thumbs-up](thumbs-up.png)|thumbs-up|
+|![heart-outline](heart-outline.png)|heart-outline|
+|![heart](heart.png)|heart|
 |![maximize](maximize.png)|maximize|
 |![minimize](minimize.png)|minimize|
 |![scale](scale.png)|scale|
@@ -121,3 +125,5 @@ title: Stremio Icons
 |![eye-off](eye-off.png)|eye-off|
 |![local-import](local-import.png)|local-import|
 |![drag-handle](drag-handle.png)|drag-handle|
+|![bin](bin.png)|bin|
+|![dot-arrow](dot-arrow.png)|dot-arrow|
