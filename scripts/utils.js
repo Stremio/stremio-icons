@@ -14,7 +14,7 @@ const toSVGFile = (viewBox, paths) => {
     const svgPaths = paths
         .map(({ d, styles }) => `<path d="${d}" style="${toInlineStyle(styles)}" />`)
         .join('');
-    return `<svg viewBox="${viewBox}">${svgPaths}</svg>`;
+    return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${viewBox}">${svgPaths}</svg>`;
 };
 
 const toSVGFiles = (icons) => {
