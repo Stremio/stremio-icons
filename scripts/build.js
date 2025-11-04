@@ -6,7 +6,6 @@ const svgpath = require('svgpath');
 const { optimize } = require('svgo');
 const buildSolid = require('./buildSolid');
 const buildReact = require('./buildReact');
-const buildReactNative = require('./buildReactNative');
 const buildAndroid = require('./buildAndroid');
 const buildDocs = require('./buildDocs');
 const buildAngularJS = require('./buildAngularJS');
@@ -104,10 +103,6 @@ if (process.argv.includes('all') || process.argv.includes('solid')) {
 
 if (process.argv.includes('all') || process.argv.includes('react')) {
     buildReact(icons);
-}
-
-if (process.argv.includes('all') || process.argv.includes('react-native')) {
-    buildReactNative(icons);
 }
 
 if (process.argv.includes('all') || process.argv.includes('android')) {
