@@ -1,64 +1,37 @@
-group = "com.github.Stremio"
-version = "5.7.1"
-
-buildscript {
-    repositories {
-        gradlePluginPortal()
-    }
-
-    val mokoVersion = extra["moko.version"] as String
-
-    dependencies {
-        classpath("dev.icerock.moko:resources-generator:${mokoVersion}")
-    }
-}
-
 plugins {
-    kotlin("multiplatform")
+    id("com.android.library") version "8.13.0"
+    id("org.jetbrains.kotlin.android") version "1.9.0"
     id("maven-publish")
-    id("com.android.library")
-    id("dev.icerock.mobile.multiplatform-resources")
-}
-
-repositories {
-    google()
-    mavenCentral()
-}
-
-kotlin {
-    android {
-        publishLibraryVariants("release")
-    }
-
-    @Suppress("UNUSED_VARIABLE")
-    sourceSets {
-        val commonMain by getting {
-            dependencies {
-                api("dev.icerock.moko:resources:${extra["moko.version"] as String}")
-            }
-        }
-        val androidMain by getting
-    }
 }
 
 android {
+    namespace = "com.stremio.icons"
+    compileSdk = 36
+
     defaultConfig {
         minSdk = 22
-        compileSdk = 33
     }
 
-    compileOptions {
+    java {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
-
-    sourceSets {
-        getByName("main") {
-            manifest.srcFile("src/androidMain/AndroidManifest.xml")
-        }
+    
+    kotlinOptions {
+        jvmTarget = "1.8"
     }
 }
 
-multiplatformResources {
-    multiplatformResourcesPackage = "com.stremio.icons"
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                from(components["release"])
+
+                groupId = "com.github.Stremio"
+                artifactId = "stremio-icons"
+                version = "5.7.1"
+            }
+        }
+    }
 }
