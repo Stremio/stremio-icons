@@ -40,7 +40,9 @@ title: Stremio Icons
 |![dot-arrow](dot-arrow.png)|dot-arrow|
 |![download](download.png)|download|
 |![drag-handle](drag-handle.png)|drag-handle|
+|![edit](edit.png)|edit|
 |![episodes](episodes.png)|episodes|
+|![exit](exit.png)|exit|
 |![external-player](external-player.png)|external-player|
 |![eye-off](eye-off.png)|eye-off|
 |![eye](eye.png)|eye|
@@ -81,6 +83,7 @@ title: Stremio Icons
 |![notifications](notifications.png)|notifications|
 |![open-in-browser](open-in-browser.png)|open-in-browser|
 |![pause](pause.png)|pause|
+|![person-outline-edit](person-outline-edit.png)|person-outline-edit|
 |![person-outline](person-outline.png)|person-outline|
 |![person](person.png)|person|
 |![play-outline](play-outline.png)|play-outline|
@@ -89,6 +92,7 @@ title: Stremio Icons
 |![remote](remote.png)|remote|
 |![remove-from-library](remove-from-library.png)|remove-from-library|
 |![remove](remove.png)|remove|
+|![replay](replay.png)|replay|
 |![reset](reset.png)|reset|
 |![rotate](rotate.png)|rotate|
 |![scale](scale.png)|scale|
