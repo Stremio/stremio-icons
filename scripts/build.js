@@ -1,7 +1,6 @@
 const fs = require('fs');
 const path = require('path');
 const { xml2js } = require('xml-js');
-const { optimize } = require('svgo');
 const buildSolid = require('./buildSolid');
 const buildReact = require('./buildReact');
 const buildAndroid = require('./buildAndroid');
@@ -35,8 +34,7 @@ const icons = fs.readdirSync(ICONS_DIR)
     .map((filename) => {
         const filepath = path.join(ICONS_DIR, filename);
         const buffer = fs.readFileSync(filepath);
-        const { data } = optimize(buffer);
-        const { elements } = xml2js(data);
+        const { elements } = xml2js(buffer);
 
         const container = elements.find(({ name }) => name === 'svg');
         const paths = container.elements.map(({ attributes }) => {
