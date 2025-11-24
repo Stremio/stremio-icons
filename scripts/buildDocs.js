@@ -13,7 +13,7 @@ const buildDocs = async (icons) => {
     const docsPath = path.join(process.cwd(), 'docs');
     await removeFiles(docsPath, '*.?(png|md)');
 
-    const pngFiles = await toPngFiles(icons, 32);
+    const pngFiles = await toPngFiles(icons, 50);
     pngFiles.forEach(({ filename, buffer }) => {
         fs.writeFileSync(path.join(docsPath, filename), buffer);
     });
