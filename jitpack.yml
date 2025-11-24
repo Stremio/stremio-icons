@@ -2,7 +2,7 @@ env:
   NODE_VERSION: "14.15.0"
   NODE_SHA256: "d315c5dea4d96658164cdb257bd8dbb5e44bdd2a7c1d747841f06515f23a0042"
 jdk:
-  - openjdk11
+  - openjdk17
 before_install:
   - wget -q https://nodejs.org/dist/v"$NODE_VERSION"/node-v"$NODE_VERSION"-linux-x64.tar.gz
   - echo "$NODE_SHA256" node-v"$NODE_VERSION"-linux-x64.tar.gz | sha256sum -c
