@@ -1,6 +1,10 @@
+# .npmignore
 /.github
 /scripts
 /docs
 /android
 /icons
-stremio-icons.svg
+jitpack.yml
+/**/src
+/**/tsconfig.json
+/**/tsup.config.ts

@@ -14,8 +14,7 @@
     },
     "workspaces": [
         "react",
-        "solid",
-        "angularjs"
+        "solid"
     ],
     "scripts": {
         "build": "node scripts/build.js",
