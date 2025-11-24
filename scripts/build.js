@@ -16,20 +16,6 @@ const parseStyles = (attributes) => {
     return Object.fromEntries(Object.entries(attributes).filter(([key]) => !ignoreAttributes.includes(key)));
 };
 
-const parseViewBox = (attributes) => {
-    const viewBox = attributes['viewBox'];
-
-    const width = attributes['width'];
-    const height = attributes['height'];
-    
-    return viewBox ?? `0 0 ${width} ${height}`;
-};
-
-const parseSize = (viewBox) => {
-    const [,, width, height] = viewBox.split(' ');
-    return [width, height];
-};
-
 const icons = fs.readdirSync(ICONS_DIR)
     .map((filename) => {
         const filepath = path.join(ICONS_DIR, filename);
@@ -56,8 +42,8 @@ const icons = fs.readdirSync(ICONS_DIR)
         });
 
         const name = filename.replace('.svg', '');
-        const viewBox = parseViewBox(container.attributes);
-        const [width, height] = parseSize(viewBox);
+        const viewBox = container.attributes['viewBox'];
+        const [,, width, height] = viewBox.split(' ');
 
         return {
             name,
