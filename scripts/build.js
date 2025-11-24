@@ -1,102 +1,64 @@
 const fs = require('fs');
 const path = require('path');
 const { xml2js } = require('xml-js');
-const parseSVGPath = require('parse-svg-path');
-const svgpath = require('svgpath');
 const { optimize } = require('svgo');
 const buildSolid = require('./buildSolid');
 const buildReact = require('./buildReact');
-const buildReactNative = require('./buildReactNative');
 const buildAndroid = require('./buildAndroid');
 const buildDocs = require('./buildDocs');
 const buildAngularJS = require('./buildAngularJS');
 
-const findSVGElement = (object, options) => {
-    if ((options.id && object?.attributes?.id === options.id) || (options.name && object?.name === options.name)) {
-        return object;
-    } else {
-        if (object.elements) {
-            for (const element of object.elements) {
-                const found = findSVGElement(element, options);
-                if (found) {
-                    return found;
-                }
+const ICONS_DIR = 'icons';
+
+const parseStyles = (attributes) => {
+    const styleAttribute = attributes['style'];
+    if (styleAttribute) return Object.fromEntries(styleAttribute.split(';').map((attribute) => attribute.split(':')));
+
+    const ignoreAttributes = ['id', 'data-name', 'd', 'transform'];
+    return Object.fromEntries(Object.entries(attributes).filter(([key]) => !ignoreAttributes.includes(key)));
+};
+
+const icons = fs.readdirSync(ICONS_DIR)
+    .map((filename) => {
+        const filepath = path.join(ICONS_DIR, filename);
+        const buffer = fs.readFileSync(filepath);
+        const { data } = optimize(buffer);
+        const { elements } = xml2js(data);
+
+        const container = elements.find(({ name }) => name === 'svg');
+        const viewBox = container.attributes['viewBox'];
+
+        const paths = container.elements.map(({ attributes }) => {
+            const styles = parseStyles(attributes);
+
+            if (styles['fill']) {
+                styles['fill'] = 'currentcolor';
             }
-        }
-    }
-    return null;
-}
 
-const SVGBuffer = fs.readFileSync(path.join(process.cwd(), 'stremio-icons.svg'));
-const { data: optimizedSVG } = optimize(SVGBuffer, {
-    plugins: [
-        {
-            name: 'preset-default',
-            params: {
-                overrides: {
-                    cleanupIds: false,
-                    moveElemsAttrsToGroup: false,
-                    moveGroupAttrsToElems: false,
-                },
-            },
-        },
-    ],
-});
+            if (styles['stroke']) {
+                styles['stroke'] = 'currentcolor';
+                styles['fill'] = 'none';
+            }
 
-const parsedSVG = xml2js(optimizedSVG);
-const stremioIcons = findSVGElement(parsedSVG, { id: 'stremio-icons' });
+            return {
+                d: attributes.d,
+                styles,
+            };
+        });
 
-const ICON_SIZE = 512;
-
-const icons = stremioIcons.elements.filter(({ name }) => name === 'g').map((icon) => {
-    console.log(icon.attributes.id);
-
-    const iconOuter = icon.elements.find(({ name }) => name === 'path');
-    const iconInner = icon.elements.find(({ name }) => name === 'g');
-
-    const iconInnerTransform = iconInner.attributes['transform'] || '';
-
-    const [[, x, y]] = parseSVGPath(iconOuter.attributes.d);
-    const iconOuterOffset = {
-        x: -(x - ICON_SIZE),
-        y: -y,
-    };
-
-    const viewBox = `0 0 ${ICON_SIZE} ${ICON_SIZE}`;
-
-    const paths = iconInner.elements.map(({ attributes }) => {
-        const ignoreAttributes = ['id', 'data-name', 'd', 'transform'];
-        const styles = Object.fromEntries(Object.entries(attributes).filter(([key]) => !ignoreAttributes.includes(key)));
-        if (styles['fill']) {
-            styles['fill'] = 'currentcolor';
-        }
-        if (styles['stroke']) {
-            styles['stroke'] = 'currentcolor';
-            styles['fill'] = 'none';
-        }
-
-        const iconTransform = attributes['transform'] || '';
-
-        const d = svgpath(attributes.d)
-            .transform(iconInnerTransform)
-            .transform(iconTransform)
-            .translate(iconOuterOffset.x, iconOuterOffset.y)
-            .toString();
+        const name = filename.replace('.svg', '');
+        const [,, width, height] = viewBox.split(' ');
 
         return {
-            d,
-            styles
+            name,
+            width,
+            height,
+            viewBox,
+            paths,
         };
     });
 
-    return {
-        name: icon.attributes.id,
-        width: ICON_SIZE,
-        height: ICON_SIZE,
-        viewBox,
-        paths,
-    }
-});
+console.log(`${icons.length} icons processed`);
 
 if (process.argv.includes('all') || process.argv.includes('solid')) {
     buildSolid(icons);
@@ -104,10 +66,6 @@ if (process.argv.includes('all') || process.argv.includes('solid')) {
 
 if (process.argv.includes('all') || process.argv.includes('react')) {
     buildReact(icons);
-}
-
-if (process.argv.includes('all') || process.argv.includes('react-native')) {
-    buildReactNative(icons);
 }
 
 if (process.argv.includes('all') || process.argv.includes('android')) {
