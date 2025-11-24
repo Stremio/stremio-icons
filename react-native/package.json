@@ -1,8 +1,0 @@
-{
-    "name": "@stremio/stremio-icons-react-native",
-    "main": "index.js",
-    "dependencies": {
-        "change-case": "^4.1.2",
-        "colord": "^2.9.3"
-    }
-}
