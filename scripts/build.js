@@ -5,6 +5,7 @@ const buildSolid = require('./buildSolid');
 const buildReact = require('./buildReact');
 const buildAndroid = require('./buildAndroid');
 const buildDocs = require('./buildDocs');
+const buildJade = require('./buildJade');
 
 const ICONS_DIR = 'icons';
 
@@ -72,3 +73,6 @@ if (process.argv.includes('all') || process.argv.includes('docs')) {
     buildDocs(icons);
 }
 
+if (process.argv.includes('all') || process.argv.includes('jade')) {
+    buildJade(icons);
+}
