@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const { paramCase } = require('change-case');
-const { removeFiles, toJSONFile } = require('./utils');
+const { removeFiles } = require('./utils');
 
 const toStylusVariables = (icons) => {
     return icons.map(({ name, viewBox }) => {
@@ -41,7 +41,7 @@ const buildJade = async (icons) => {
     }
 
     // Clean existing files
-    await removeFiles(jadePath, '*.?(json|jade|styl)');
+    await removeFiles(jadePath, '*.?(jade|styl)');
 
     // Generate Pug mixins file with hardcoded SVG data
     const jadeMixinsPath = path.join(jadePath, 'icons.jade');
