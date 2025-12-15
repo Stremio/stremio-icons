@@ -21,6 +21,7 @@
         "build:android": "npm run build -- android",
         "build:react": "npm run build -w react",
         "build:solid": "npm run build -w solid",
+        "build:jade": "npm run build -- jade",
         "build:all": "run-s \"build -- all\" build:react build:solid"
     },
     "devDependencies": {
