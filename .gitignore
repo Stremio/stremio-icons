@@ -3,3 +3,5 @@ package-lock.json
 /node_modules
 /docs
 .idea/
+icons.jade
+icons.styl

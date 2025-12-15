@@ -4,7 +4,7 @@ const { paramCase } = require('change-case');
 const { removeFiles, toJSONFile } = require('./utils');
 
 const toStylusVariables = (icons) => {
-    return icons.map(({ name, viewBox, paths }) => {
+    return icons.map(({ name, viewBox }) => {
         const [x, y, width, height] = viewBox.split(' ');
         return `$icon-${paramCase(name)}-viewBox = "${viewBox}"
 $icon-${paramCase(name)}-width = ${width}
@@ -52,22 +52,6 @@ const buildJade = async (icons) => {
     const stylusPath = path.join(jadePath, 'icons.styl');
     const stylusVars = toStylusVariables(icons);
     fs.writeFileSync(stylusPath, stylusVars);
-
-    // Generate index file with icon list
-    const indexContent = `// Stremio Icons for Jade/Stylus
-// 
-// Usage in Jade:
-//   include icons.jade
-//   +icon-play('my-icon')
-//   +icon-play('my-icon another-class')
-//
-// Available icons:
-${icons.map(({ name }) => `//   - ${paramCase(name)}`).join('\n')}
-
-include icons.jade`;
-    
-    fs.writeFileSync(path.join(jadePath, 'index.jade'), indexContent);
-
 };
 
 module.exports = buildJade;
