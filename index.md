@@ -51,6 +51,7 @@ title: Stremio Icons
 |![filters](filters.png)|filters|
 |![glasses](glasses.png)|glasses|
 |![grid](grid.png)|grid|
+|![hdr](hdr.png)|hdr|
 |![heart-outline](heart-outline.png)|heart-outline|
 |![heart](heart.png)|heart|
 |![help](help.png)|help|
