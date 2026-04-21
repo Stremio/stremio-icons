@@ -10,7 +10,7 @@
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "https://github.com/stremio/stremio-icons.git"
+        "url": "git+https://github.com/Stremio/stremio-icons.git"
     },
     "workspaces": [
         "react",
