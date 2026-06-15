@@ -68,6 +68,7 @@ title: Stremio Icons
 |![linux](linux.png)|linux|
 |![list](list.png)|list|
 |![local-import](local-import.png)|local-import|
+|![lock](lock.png)|lock|
 |![macos](macos.png)|macos|
 |![magnet-link](magnet-link.png)|magnet-link|
 |![maximize](maximize.png)|maximize|
