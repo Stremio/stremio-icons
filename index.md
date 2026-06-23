@@ -34,6 +34,7 @@ title: Stremio Icons
 |![close](close.png)|close|
 |![cloud-library](cloud-library.png)|cloud-library|
 |![cloud-sync](cloud-sync.png)|cloud-sync|
+|![delete](delete.png)|delete|
 |![details](details.png)|details|
 |![discover-outline](discover-outline.png)|discover-outline|
 |![discover](discover.png)|discover|
