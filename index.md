@@ -34,6 +34,7 @@ title: Stremio Icons
 |![close](close.png)|close|
 |![cloud-library](cloud-library.png)|cloud-library|
 |![cloud-sync](cloud-sync.png)|cloud-sync|
+|![day](day.png)|day|
 |![delete](delete.png)|delete|
 |![details](details.png)|details|
 |![discover-outline](discover-outline.png)|discover-outline|
@@ -82,6 +83,7 @@ title: Stremio Icons
 |![movies](movies.png)|movies|
 |![network](network.png)|network|
 |![next](next.png)|next|
+|![night](night.png)|night|
 |![notifications-outline](notifications-outline.png)|notifications-outline|
 |![notifications](notifications.png)|notifications|
 |![open-in-browser](open-in-browser.png)|open-in-browser|
