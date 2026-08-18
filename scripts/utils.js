@@ -4,13 +4,13 @@ const { paramCase, camelCase, snakeCase } = require('change-case');
 const sharp = require('sharp');
 const glob = require('glob');
 
-const toInlineStyle = (styles) => {
-    return Object.entries(styles)
-        .map(([key, value]) => `${paramCase(key)}:${value}`)
-        .join(';');
-};
-
 const toSVGFile = (viewBox, paths) => {
+    const toInlineStyle = (styles) => {
+        return Object.entries(styles)
+            .map(([key, value]) => `${paramCase(key)}:${value}`)
+            .join(';');
+    };
+
     const svgPaths = paths
         .map(({ d, styles }) => `<path d="${d}" style="${toInlineStyle(styles)}" />`)
         .join('');
@@ -129,8 +129,6 @@ const removeDir = (path) => {
 };
 
 module.exports = {
-    toInlineStyle,
-    toSVGFile,
     toSVGFiles,
     toPngFiles,
     toDrawableFiles,
