@@ -40,6 +40,10 @@ const toPngFiles = (icons, size) => {
 
 const toDrawableFiles = (icons) => {
     const toDrawableAttributes = (styles = {}) => {
+        const cleanValue = (value) => {
+            return value.replace('px', '');
+        };
+
         const ignoreProperties = ['fill', 'stroke', 'style', 'clip-rule'];
         const renameProperties = {
             'stroke-linejoin': 'stroke-line-join',
@@ -55,7 +59,7 @@ const toDrawableFiles = (icons) => {
             .filter((([key]) => !ignoreProperties.includes(key)))
             .map((([key, value]) => [renameProperties[key] ?? key, value]))
             .map((([key, value]) => [key, renameValues[value] ?? value]))
-            .map((([key, value]) => [camelCase(key), value]));
+            .map((([key, value]) => [camelCase(key), cleanValue(value)]));
 
         if (attributes.find(([key]) => key.startsWith('stroke'))) {
             attributes.push([['strokeColor'], ['#FFFFFFFF']]);
