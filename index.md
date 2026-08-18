@@ -31,6 +31,7 @@ title: Stremio Icons
 |![chevron-down](chevron-down.png)|chevron-down|
 |![chevron-forward](chevron-forward.png)|chevron-forward|
 |![chevron-up](chevron-up.png)|chevron-up|
+|![clock](clock.png)|clock|
 |![close](close.png)|close|
 |![cloud-library](cloud-library.png)|cloud-library|
 |![cloud-sync](cloud-sync.png)|cloud-sync|
