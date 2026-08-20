@@ -13,6 +13,7 @@ title: Stremio Icons
 |![android](android.png)|android|
 |![anime-outline](anime-outline.png)|anime-outline|
 |![anime](anime.png)|anime|
+|![aspect-ratio](aspect-ratio.png)|aspect-ratio|
 |![audio-tracks](audio-tracks.png)|audio-tracks|
 |![audio](audio.png)|audio|
 |![bin](bin.png)|bin|
