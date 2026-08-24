@@ -30,7 +30,7 @@ afterEvaluate {
 
                 groupId = "com.github.Stremio"
                 artifactId = "stremio-icons"
-                version = "5.14.0"
+                version = "5.15.0"
             }
         }
     }
