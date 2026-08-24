@@ -128,6 +128,9 @@ title: Stremio Icons
 |![trakt](trakt.png)|trakt|
 |![tv-outline](tv-outline.png)|tv-outline|
 |![tv](tv.png)|tv|
+|![video-scale-crop](video-scale-crop.png)|video-scale-crop|
+|![video-scale-fit](video-scale-fit.png)|video-scale-fit|
+|![video-scale-stretch](video-scale-stretch.png)|video-scale-stretch|
 |![vlc](vlc.png)|vlc|
 |![volume-high](volume-high.png)|volume-high|
 |![volume-low](volume-low.png)|volume-low|
