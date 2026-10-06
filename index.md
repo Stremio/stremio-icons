@@ -78,6 +78,7 @@ title: Stremio Icons
 |![maximize](maximize.png)|maximize|
 |![megaphone](megaphone.png)|megaphone|
 |![memory](memory.png)|memory|
+|![mic](mic.png)|mic|
 |![minimize](minimize.png)|minimize|
 |![more-horizontal](more-horizontal.png)|more-horizontal|
 |![more-vertical](more-vertical.png)|more-vertical|
