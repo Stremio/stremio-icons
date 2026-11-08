@@ -5,6 +5,7 @@ title: Stremio Icons
 |preview|name|
 |:---:|:---:|
 |![about](about.png)|about|
+|![account](account.png)|account|
 |![actors](actors.png)|actors|
 |![add-to-library](add-to-library.png)|add-to-library|
 |![add](add.png)|add|
@@ -66,6 +67,7 @@ title: Stremio Icons
 |![imdb-outline](imdb-outline.png)|imdb-outline|
 |![imdb](imdb.png)|imdb|
 |![in-cinema](in-cinema.png)|in-cinema|
+|![keyboard](keyboard.png)|keyboard|
 |![language](language.png)|language|
 |![library-outline](library-outline.png)|library-outline|
 |![library](library.png)|library|
