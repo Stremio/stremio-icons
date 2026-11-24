@@ -97,6 +97,8 @@ title: Stremio Icons
 |![person-outline-edit](person-outline-edit.png)|person-outline-edit|
 |![person-outline](person-outline.png)|person-outline|
 |![person](person.png)|person|
+|![pip-enter](pip-enter.png)|pip-enter|
+|![pip-exit](pip-exit.png)|pip-exit|
 |![play-outline](play-outline.png)|play-outline|
 |![play](play.png)|play|
 |![reddit](reddit.png)|reddit|
